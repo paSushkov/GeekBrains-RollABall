@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LabirinthGame.Camera.CameraController">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAABAQAAEAIAAAACYAAAIAAAAABAAAAAAAgAACAAQEA=</HashCode>
+      <FileName>Assets\Application\Scripts\Camera\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabirinthGame.Common.SelfDestructor">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAQIAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\SelfDestructor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabirinthGame.Common.Singleton&lt;T&gt;">
+    <Position X="10.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFABAAAAAAAAAgAAAAAAAAAAAAAAAAYAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabirinthGame.Common.Tracker" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAABAAAAAAAEAAAAAAAAAQAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\Tracker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabirinthGame.Common.TriggerListener">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgAAAAAABAAAAAIAgAAAAAAAIAgQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\TriggerListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabirinthGame.Managers.GameManager">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAEACAAAAAAAAgAAAAAAAAACAAA=</HashCode>
+      <FileName>Assets\Application\Scripts\ManagersAndControllers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabirinthGame.Managers.InputManager">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="LabirinthGame.Managers.InputManager.AxisInputProcessor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Application\Scripts\ManagersAndControllers\InputManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="LabirinthGame.Managers.InputManager.MouseMoveProcessor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Application\Scripts\ManagersAndControllers\InputManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="LabirinthGame.Managers.InputManager.ShootProcessor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Application\Scripts\ManagersAndControllers\InputManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAwAAABBAAAAAACAAAAAIAAAAAAAAAICIAQAAECCAAE=</HashCode>
+      <FileName>Assets\Application\Scripts\ManagersAndControllers\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabirinthGame.Player.PlayerBase">
+    <Position X="14" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEqAAAAAAQAAAAAAAAADIAAAAAAgAAAAAAEA=</HashCode>
+      <FileName>Assets\Application\Scripts\Player\PlayerBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabirinthGame.Player.RigidbodyPlayer">
+    <Position X="14" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQBAAAAAoACAAAAQABAAAAAAABACAAAAAAAAAIAAEA=</HashCode>
+      <FileName>Assets\Application\Scripts\Player\RigidbodyPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="LabirinthGame.Common.Interfaces.IMovable">
+    <Position X="16.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\Interfaces\IMovable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LabirinthGame.Common.Interfaces.ITrackable">
+    <Position X="18" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\Interfaces\ITrackable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LabirinthGame.Common.Interfaces.ITracker">
+    <Position X="16.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\Interfaces\ITracker.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Delegate Name="LabirinthGame.Common.Handlers.TriggerEventHandler">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\Handlers\TriggerEventHandler.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="LabirinthGame.Common.Interfaces.PositionChangeProcessor">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Application\Scripts\Common\Interfaces\ITrackable.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

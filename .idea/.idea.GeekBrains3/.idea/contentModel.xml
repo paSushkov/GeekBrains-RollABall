@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\pasus\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pasus\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_GeekBrains3.-75724139.00" t="ExcludeRecursive" />
+    <e p="D:\MyRepos\GeekBrains3" t="IncludeRecursive">
+      <e p="Assets" t="Include">
+        <e p="Application" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Camera" t="Include">
+              <e p="CameraController.cs" t="Include" />
+            </e>
+            <e p="Characteristics" t="Include">
+              <e p="Characteristic.cs" t="Include" />
+              <e p="CharacterResource.cs" t="Include" />
+              <e p="Enums" t="Include">
+                <e p="CharacteristicType.cs" t="Include" />
+                <e p="CharacterResourceType.cs" t="Include" />
+              </e>
+              <e p="IHaveStats.cs" t="Include" />
+              <e p="RegenerativeCharacterResource.cs" t="Include" />
+              <e p="Stat.cs" t="Include" />
+              <e p="StatHolder.cs" t="Include" />
+            </e>
+            <e p="Collectibles" t="Include">
+              <e p="CollectibleBase.cs" t="Include" />
+              <e p="ResourceChangingCollectible.cs" t="Include" />
+              <e p="StatChangingCollectible.cs" t="Include" />
+            </e>
+            <e p="Common" t="Include">
+              <e p="Handlers" t="Include">
+                <e p="MinMaxChanged.cs" t="Include" />
+                <e p="TriggerEventHandler.cs" t="Include" />
+                <e p="ValueChanged.cs" t="Include" />
+              </e>
+              <e p="Interfaces" t="Include">
+                <e p="IFlickerable.cs" t="Include" />
+                <e p="IMovable.cs" t="Include" />
+                <e p="IRotatable.cs" t="Include" />
+                <e p="ITrackable.cs" t="Include" />
+                <e p="ITracker.cs" t="Include" />
+                <e p="IUpdateProcessor.cs" t="Include" />
+              </e>
+              <e p="MinMaxCurrent.cs" t="Include" />
+              <e p="Rotator.cs" t="Include" />
+              <e p="SelfDestructor.cs" t="Include" />
+              <e p="Singleton.cs" t="Include" />
+              <e p="Tracker.cs" t="Include" />
+              <e p="TriggerListener.cs" t="Include" />
+            </e>
+            <e p="Effects" t="Include">
+              <e p="EffectBase.cs" t="Include" />
+              <e p="EffectController.cs" t="Include" />
+              <e p="Enums" t="Include">
+                <e p="EffectTypes.cs" t="Include" />
+              </e>
+              <e p="ExtraValue.cs" t="Include" />
+              <e p="Interfaces" t="Include">
+                <e p="IEffectApplicable.cs" t="Include" />
+                <e p="IEffectApplicator.cs" t="Include" />
+              </e>
+              <e p="SpecificImplementations" t="Include">
+                <e p="CharacteristicChangingEffect.cs" t="Include" />
+                <e p="ResourceChangingEffect.cs" t="Include" />
+                <e p="ResourceRegenerationChangingEffect.cs" t="Include" />
+                <e p="ResourceValueChangingEffect.cs" t="Include" />
+              </e>
+            </e>
+            <e p="LabirinthGame.asmdef" t="Include" />
+            <e p="ManagersAndControllers" t="Include">
+              <e p="GameManager.cs" t="Include" />
+              <e p="InputManager.cs" t="Include" />
+              <e p="MasterFlicker.cs" t="Include" />
+              <e p="MasterRotator.cs" t="Include" />
+            </e>
+            <e p="Player" t="Include">
+              <e p="PlayerBase.cs" t="Include" />
+              <e p="RigidbodyPlayer.cs" t="Include" />
+            </e>
+            <e p="Temp" t="Include">
+              <e p="RegenDebug.cs" t="Include" />
+              <e p="StatDebug.cs" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="BarHandler.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ThirdParty" t="Include">
+          <e p="LabyrinthGenerator" t="Include">
+            <e p="Assets" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="LabirinthGeneratorEditor.asmdef" t="Include" />
+                  <e p="LabyrinthGeneratorWindow.cs" t="Include" />
+                </e>
+                <e p="LabirinthGenerator.asmdef" t="Include" />
+                <e p="Runtime" t="Include">
+                  <e p="LabyrinthGenerator" t="Include">
+                    <e p="Cell.cs" t="Include" />
+                    <e p="DirectionEnum.cs" t="Include" />
+                    <e p="Labyrinth.cs" t="Include" />
+                    <e p="LabyrinthGenerator.cs" t="Include" />
+                    <e p="PositionSetter.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="GeekBrains3.sln" t="IncludeFlat" />
+      <e p="Labirinth.Editor.csproj" t="IncludeRecursive" />
+      <e p="LabirinthGame.csproj" t="IncludeRecursive" />
+      <e p="LabirinthGenerator.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

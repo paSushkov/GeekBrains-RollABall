@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="078af3f0-684f-40d5-905d-dc5b31cb8ceb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Tracker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Effects/Enums/EffectTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterRotator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITracker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://S:/Unity/Editors/2019.4.13f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/SelfDestructor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IUpdateProcessor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacterResourceType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IFlickerable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.1.3/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/TriggerEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/ValueChanged.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITrackable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterFlicker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Rotator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegeneratableCharacteristic.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeCharacteristic.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IUpdateProcessor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Handlers/CharacteristicMinMaxChanged.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Handlers/MinMaxChanged.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Handlers/ValueChanged.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/CharacteristicHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Resourse.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/ResourceHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeStat.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeResouce.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/ResourceType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacteristicType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Statsss.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeResource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Resource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Characteristic.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacterResourceType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/CharacterResource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/IHaveStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/SpeedChangeTemp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/TriggerListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/SpeedBonusCollectible.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterRotator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingBonus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/CharacteristicChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/SpeedChangeTempEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/ExtraValue.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceRegenerationChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceValueChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ResourceChangingCollectible.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeCharacterResource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/ThirdParty/LabyrinthGenerator/Assets/Scripts/Runtime/LabyrinthGenerator/LabyrinthGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lIv7JSjlp0hXfaKCUfWgOZRVmN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/CharacteristicChangingEffect.cs" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/release\GeekBrains3.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\MyRepos\GeekBrains3\Builds\release" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="078af3f0-684f-40d5-905d-dc5b31cb8ceb" name="Default Changelist" comment="" />
+      <created>1607297252857</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607297252857</updated>
+      <workItem from="1607297259061" duration="18786000" />
+      <workItem from="1607317168948" duration="5691000" />
+      <workItem from="1607452645467" duration="8959000" />
+      <workItem from="1607536778371" duration="3414000" />
+      <workItem from="1607674969435" duration="11073000" />
+      <workItem from="1607775565499" duration="16785000" />
+      <workItem from="1607800787051" duration="1864000" />
+      <workItem from="1607803320093" duration="202000" />
+      <workItem from="1607805053840" duration="1569000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="100" y="100" width="2360" height="1209" key="DiffContextDialog" timestamp="1607797358651">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="100" y="100" width="2360" height="1209" key="DiffContextDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1607797358651" />
+    <state x="1086" y="406" key="RiderGenerateDialog" timestamp="1607797191551">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="1086" y="406" key="RiderGenerateDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1607797191551" />
+    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup" timestamp="1607454307591">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1607454307591" />
+  </component>
+</project>
