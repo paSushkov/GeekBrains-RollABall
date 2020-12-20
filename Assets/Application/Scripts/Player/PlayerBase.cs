@@ -1,7 +1,6 @@
 ﻿using LabirinthGame.Common.Interfaces;
 using LabirinthGame.Effects;
 using LabirinthGame.Stats;
-using LabirinthGame.Tech.Input;
 using LabirinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
@@ -11,24 +10,22 @@ namespace LabirinthGame.Player
     {
         #region Private data
 
-        protected Vector3 moveInput;
         protected EffectController effectController;
-        protected IInputListener _inputListener;
         private bool isSubscribedForInput;
         private bool isSubscribedForSpeedChange;
 
         #endregion
 
 
-        #region Public methods
+        #region IPlayer implementation
 
-        public virtual void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, Stat speedStat, IInputListener inputListener)
+        public Vector3 MoveDirection { get; set; }
+        
+        public virtual void Initialize(Transform gameTransform, IPlayerLoopProcessor playerLoopProcessor, Stat speedStat)
         {
-            _inputListener = inputListener;
-            ModelTransform = modelTransform;
-            
+            GameTransform = gameTransform;
             StatHolder.AddStat(StatType.Speed, speedStat);
-            SelfMoveSpeed = speedStat.CurrentValue;
+            MoveSpeed = speedStat.CurrentValue;
             SubscribeForSpeedChange();
             PlayerLoopSubscriptionController.Initialize(this, playerLoopProcessor);
             PlayerLoopSubscriptionController.SubscribeToLoop();
@@ -38,7 +35,7 @@ namespace LabirinthGame.Player
 
         public virtual void Shutdown()
         {
-            ModelTransform = null;
+            GameTransform = null;
             UnsubscribeFromSpeedChange();
             PlayerLoopSubscriptionController.Shutdown();
             OnPositionChange = null;
@@ -46,21 +43,13 @@ namespace LabirinthGame.Player
             StatHolder.Clear();
         }
 
-
-        #endregion
-
-        #region IPlayer implementation
-
-        public Transform ModelTransform { get; private set; }
-
-
         #region IMovable implementation
 
-        public float SelfMoveSpeed { get; private set; }
+        public float MoveSpeed { get; private set; }
 
         public void MoveTo(Vector3 position)
         {
-            ModelTransform.position = position;
+            GameTransform.position = position;
         }
 
         public abstract void MoveTowards(Vector3 position, float speed);
@@ -74,7 +63,7 @@ namespace LabirinthGame.Player
 
         public event PositionChangeProcessor OnPositionChange;
 
-        public Vector3 Position => ModelTransform ? ModelTransform.position : Vector3.zero;
+        public Vector3 Position => GameTransform ? GameTransform.position : Vector3.zero;
 
         #endregion
 
@@ -107,11 +96,10 @@ namespace LabirinthGame.Player
 
         public virtual void ProcessFixedUpdate(float fixedDeltaTime)
         {
-            Debug.Log("ProcessFixedUpdate BASE");
-            if (ModelTransform.hasChanged)
+            if (GameTransform.hasChanged)
             {
-                OnPositionChange?.Invoke(ModelTransform.position);
-                ModelTransform.hasChanged = false;
+                OnPositionChange?.Invoke(GameTransform.position);
+                GameTransform.hasChanged = false;
             }
 
             StatHolder.ProcessFixedUpdate(fixedDeltaTime);
@@ -124,14 +112,21 @@ namespace LabirinthGame.Player
 
         #endregion
 
+        
+        #region IHaveTransform implementation
+
+        public Transform GameTransform { get; private set; }
 
         #endregion
+        
+        #endregion
 
+        
         #region Private methods
 
         protected void ProcessSpeedChange(float newSpeed)
         {
-            SelfMoveSpeed = newSpeed;
+            MoveSpeed = newSpeed;
         }
 
         private void SubscribeForSpeedChange()
@@ -154,5 +149,6 @@ namespace LabirinthGame.Player
         }
 
         #endregion
+        
     }
 }

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace LabirinthGame.Tech.Input
+﻿namespace LabirinthGame.Tech.Input
 {
     public interface IInputListener
     {

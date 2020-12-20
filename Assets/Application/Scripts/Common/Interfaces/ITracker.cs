@@ -2,8 +2,8 @@
 {
     public interface ITracker
     {
-        ITrackable Target { get; set; }
-        void StartTracking();
+        ITrackable Target { get; }
+        void StartTracking(ITrackable target);
         void StopTracking();
 
     }

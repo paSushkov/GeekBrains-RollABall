@@ -61,7 +61,7 @@ namespace LabirinthGame.Common
             _shuttingDown = true;
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             _shuttingDown = true;
         }

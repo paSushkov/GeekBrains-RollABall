@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace LabirinthGame.Camera
 {
-    public class CameraController : ICameraController, IPlayerLoop
+    public class CameraController : ICameraController
     {
         public event VoidHandler TrackingProcess;
         
@@ -23,60 +23,37 @@ namespace LabirinthGame.Camera
 
         private Vector3 _desiredPosition;
         private List<PositionChangeProcessor> subscribedProcessors = new List<PositionChangeProcessor>();
-        private ITrackable _target;
-
 
         #endregion
 
         #region Properties
-
         public bool IsTracking { get; private set; }
 
         #endregion
 
 
-        #region Public methods
 
-        public void Initilize(IPlayerLoopProcessor playerLoopProcessor, ITrackable target, Transform cameraTransform)
-        {
-            PlayerLoopSubscriptionController.Initialize(this, playerLoopProcessor);
-            PlayerLoopSubscriptionController.SubscribeToLoop();
-            Target = target;
-            CameraTransform = cameraTransform;
-        }
-        
-        #endregion
-
-
-        public void Shutdown()
-        {
-            PlayerLoopSubscriptionController.Shutdown();
-            StopTracking();
-            CameraTransform = null;
-            Target = null;
-
-        }
 
         
         #region Private methods
 
         private void HandleMovement()
         {
-            var direction = _desiredPosition - CameraTransform.position;
+            var direction = _desiredPosition - GameTransform.position;
             var sqrDistance = Vector3.SqrMagnitude(direction);
 
             if (sqrDistance > float.Epsilon)
             {
                 if (sqrDistance > maxDistance * maxDistance)
                 {
-                    CameraTransform.position = _desiredPosition - direction.normalized * maxDistance;
+                    GameTransform.position = _desiredPosition - direction.normalized * maxDistance;
                 }
 
                 MoveTowards(_desiredPosition, moveSpeed * Time.deltaTime);
             }
             else
             {
-                CameraTransform.position = _desiredPosition;
+                GameTransform.position = _desiredPosition;
             }
         }
 
@@ -90,7 +67,7 @@ namespace LabirinthGame.Camera
 
         #region IMovableImplementation
 
-        public float SelfMoveSpeed { get; set; }
+        public float MoveSpeed { get; set; }
 
         public void MoveTo(Vector3 position)
         {
@@ -99,7 +76,7 @@ namespace LabirinthGame.Camera
 
         public void MoveTowards(Vector3 position, float speed)
         {
-            CameraTransform.position = Vector3.Lerp(CameraTransform.position, position, speed);
+            GameTransform.position = Vector3.Lerp(GameTransform.position, position, speed);
         }
 
         public void Move(Vector3 direction, float speed)
@@ -112,32 +89,48 @@ namespace LabirinthGame.Camera
         
         #region ICameraController implementation
 
-        public Transform CameraTransform { get; private set; }
-        public void LookAt(Vector3 point)
+        public void Initialize(IPlayerLoopProcessor playerLoopProcessor, Transform cameraTransform)
         {
-            CameraTransform.LookAt(point, Vector3.up);
+            PlayerLoopSubscriptionController.Initialize(this, playerLoopProcessor);
+            PlayerLoopSubscriptionController.SubscribeToLoop();
+            GameTransform = cameraTransform;
         }
 
+        public void Shutdown()
+        {
+            PlayerLoopSubscriptionController.Shutdown();
+            StopTracking();
+            GameTransform = null;
+            Target = null;
+        }
+        
+        public void LookAt(Vector3 point)
+        {
+            GameTransform.LookAt(point, Vector3.up);
+        }
+
+        
+        #region IHaveTransform implementation
+
+        public Transform GameTransform { get; private set; }
+
+
         #endregion
-
-
+        
         
         #region ITracker implementation
 
-        public ITrackable Target 
-        { get => _target;
-            set
-            {
-             if (_target!=null)
-                 StopTracking();
-             _target = value;
-            }
-        }
+        public ITrackable Target { get; private set; }
         
-        public void StartTracking()
+        
+        public void StartTracking(ITrackable target)
         {
-            if (Target != null && !IsTracking)
+            if (IsTracking)
+                StopTracking();
+
+            if (target != null)
             {
+                Target = target;
                 GetDesiredPosition(Target.Position);
                 subscribedProcessors.Add(GetDesiredPosition);
                 Target.OnPositionChange += GetDesiredPosition;
@@ -163,7 +156,7 @@ namespace LabirinthGame.Camera
         
         #endregion
         
-
+        
         #region IPlayerLoop implementation
 
         public IPlayerLoopSubscriptionController PlayerLoopSubscriptionController { get; } = new PlayerLoopSubscriptionController();
@@ -181,6 +174,17 @@ namespace LabirinthGame.Camera
         }
         
         #endregion
+        
+        
+        
+        #endregion
+
+
+        
+
+        
+
+
 
     }
 }

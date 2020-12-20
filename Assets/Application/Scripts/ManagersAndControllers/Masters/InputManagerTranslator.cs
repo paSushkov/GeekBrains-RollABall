@@ -23,7 +23,9 @@ namespace LabirinthGame.Managers
 
         public void Shutdown()
         {
-            PlayerLoopSubscriptionController?.UnsubscribeFromLoop();
+            PlayerLoopSubscriptionController?.Shutdown();
+            _blacklist.Clear();
+            _axesInputs.Clear();
         }
 
         public void SubscribeToAxisInput(string axisName, AxisInputHandler handler)

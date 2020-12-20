@@ -17,3 +17,4 @@ MonoBehaviour:
     type: 2}
   inputManagerListener: {fileID: 11400000, guid: 08d53ae33bd7655449e90c8d95a60507,
     type: 2}
+  userInputManager: {fileID: 11400000, guid: 19c241a907605e24d90f0d7620c70af2, type: 2}

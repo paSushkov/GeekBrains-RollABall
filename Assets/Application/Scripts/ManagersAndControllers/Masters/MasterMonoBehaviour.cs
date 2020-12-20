@@ -30,6 +30,12 @@ namespace LabirinthGame.Managers
                 masterManager.Initialize(this, cameraModel, playerModel);
         }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            masterManager.Shutdown();
+        }
+
         private void Update()
         {
             var deltaTime = Time.deltaTime;

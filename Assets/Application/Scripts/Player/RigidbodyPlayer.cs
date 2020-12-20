@@ -1,6 +1,5 @@
 ﻿using LabirinthGame.Common.Interfaces;
 using LabirinthGame.Stats;
-using LabirinthGame.Tech.Input;
 using LabirinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
@@ -9,7 +8,6 @@ namespace LabirinthGame.Player
     public class RigidbodyPlayer : PlayerBase, IRigidbody
     {
         #region Private data
-
         
         private bool needToCleanUpRigidbody;
 
@@ -25,10 +23,9 @@ namespace LabirinthGame.Player
 
         #region Private methods
 
-        public override void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, Stat speedStat, IInputListener inputListener)
+        public override void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, Stat speedStat)
         {
-            base.Initialize(modelTransform, playerLoopProcessor, speedStat, inputListener);
-            Debug.Log(speedStat.CurrentValue);
+            base.Initialize(modelTransform, playerLoopProcessor, speedStat);
             if (modelTransform.TryGetComponent<Rigidbody>(out var cachedRigidBody))
                 ModelRigidbody = cachedRigidBody;
             else
@@ -44,7 +41,7 @@ namespace LabirinthGame.Player
         public override void Shutdown()
         {
             if (needToCleanUpRigidbody &&
-                ModelTransform.TryGetComponent<Rigidbody>(out var currentBody) &&
+                GameTransform.TryGetComponent<Rigidbody>(out var currentBody) &&
                 currentBody == ModelRigidbody)
             {
                 Object.Destroy(ModelRigidbody);
@@ -53,12 +50,6 @@ namespace LabirinthGame.Player
             base.Shutdown();
         }
 
-        private void GetInput()
-        {
-            moveInput = new Vector3(_inputListener.Vertical, 0, -_inputListener.Horizontal);
-            moveInput = Vector3.ClampMagnitude(moveInput, 1f);
-        }
-        
         #endregion
 
         
@@ -66,11 +57,8 @@ namespace LabirinthGame.Player
 
         public override void ProcessFixedUpdate(float fixedDeltaTime)
         {
-            Debug.Log("ProcessFixedUpdate");
-            Debug.Log($"{SelfMoveSpeed}");
-            GetInput();
-            if (moveInput.sqrMagnitude>0f)
-                Move(moveInput, SelfMoveSpeed);
+            if (MoveDirection.sqrMagnitude>0f)
+                Move(MoveDirection, MoveSpeed);
             base.ProcessFixedUpdate(fixedDeltaTime);
         }
 
@@ -81,13 +69,12 @@ namespace LabirinthGame.Player
 
         public override void MoveTowards(Vector3 position, float speed)
         {
-            var direction = position - ModelTransform.position;
+            var direction = position - GameTransform.position;
             Move(direction, speed);
         }
 
         public override void Move(Vector3 direction, float speed)
         {
-            Debug.Log("MOVING");
             ModelRigidbody.AddTorque(direction * speed, ForceMode.Acceleration);
         }
 

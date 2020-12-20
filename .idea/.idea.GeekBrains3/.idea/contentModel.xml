@@ -35,6 +35,7 @@
                 <e p="VoidHandler.cs" t="Include" />
               </e>
               <e p="Interfaces" t="Include">
+                <e p="IHaveModel.cs" t="Include" />
                 <e p="IMovable.cs" t="Include" />
                 <e p="IObjectPool.cs" t="Include" />
                 <e p="IRigidbody.cs" t="Include" />
@@ -75,6 +76,7 @@
                 <e p="MasterManager.cs" t="Include" />
                 <e p="MasterMonoBehaviour.cs" t="Include" />
                 <e p="RotationManager.cs" t="Include" />
+                <e p="UserInputManager.cs" t="Include" />
               </e>
               <e p="ObjectPool.cs" t="Include" />
             </e>
@@ -86,8 +88,12 @@
             <e p="Tech" t="Include">
               <e p="Input" t="Include">
                 <e p="AxisInput.cs" t="Include" />
+                <e p="GameProcessInputController.cs" t="Include" />
+                <e p="IInputController.cs" t="Include" />
                 <e p="IInputListener.cs" t="Include" />
                 <e p="IInputTranslator.cs" t="Include" />
+                <e p="InputControllerChanged.cs" t="Include" />
+                <e p="IUserInputManager.cs" t="Include" />
               </e>
               <e p="PlayerLoop" t="Include">
                 <e p="IPlayerLoop.cs" t="Include" />
