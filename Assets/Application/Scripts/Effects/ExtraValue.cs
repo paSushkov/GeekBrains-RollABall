@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEngine;
-
-namespace LabirinthGame.Effects
+﻿namespace LabirinthGame.Effects
 {
     public class ExtraValue
     {

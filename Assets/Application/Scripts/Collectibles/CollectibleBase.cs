@@ -1,40 +1,34 @@
-﻿using LabirinthGame.Common;
+﻿using Application.Scripts.Common.Interfaces;
+using LabirinthGame.Common;
 using LabirinthGame.Common.Interfaces;
-using LabirinthGame.Managers;
 using UnityEngine;
 
 namespace LabirinthGame.Collectibles
 {
-    [RequireComponent(typeof(TriggerListener))]
-    public class CollectibleBase : MonoBehaviour, IRotatable, IFlickerableMaterialSender
+    // TODO: Re-implement with interface
+    public class CollectibleBase : IRotatable
     {
         #region Private data
 
-        [SerializeField] private bool isMandatory;
-        [SerializeField] private Vector3 rotationSpeed = Vector3.zero;
-        [SerializeField] private LayerMask reactLayers = new LayerMask();
+        private bool isMandatory;
+        private LayerMask reactLayers = new LayerMask();
         private TriggerListener triggerListener = null;
-        private Transform cachedTransform = null;
+        private Transform modelTransform = null;
         private TriggerListener listener = null;
         private bool isSubscribedToTrigger;
+        private IObjectPool<CollectibleBase> selfPool = null;
+        private IObjectPool<Transform> modelPool = null;
+        private IRotator masterRotator;
 
         #endregion
 
+        #region Properties
 
-        #region Unity events
-
-        private void Awake()
-        {
-            AwakeInit();
-        }
-
-        private void OnDestroy()
-        {
-            DestroyShutdown();
-        }
+        public bool Initialized { get; protected set; }
 
         #endregion
-
+        
+        
 
         #region Private methods
 
@@ -46,36 +40,54 @@ namespace LabirinthGame.Collectibles
             }
         }
 
-        protected virtual void AwakeInit()
+        public virtual void Initialize(
+            IObjectPool<CollectibleBase> selfPool,
+            IObjectPool<Transform> modelPool,
+            IRotator masterRotator,
+            bool isMandatory,
+            Transform modelTransform,
+            TriggerListener listener,
+            LayerMask reactLayers)
         {
-            if (isMandatory)
-                GameManager.Instance.RegisterMandatoryCollectible(this);
+            this.isMandatory = isMandatory;
+            this.modelTransform = modelTransform;
+            this.listener = listener;
+            this.reactLayers = reactLayers;
+            this.modelPool = modelPool;
+            this.selfPool = selfPool;
+            this.masterRotator = masterRotator;
 
-            RotationSpeed = rotationSpeed;
-            RotationalTransform = cachedTransform = transform;
-            TryGetComponent(out triggerListener);
+            var range = Random.Range(0f, 1f);
+            RotationSpeed = new Vector3(Random.Range(-range, range),Random.Range(-range, range), Random.Range(-range, range) ) * 360f;
+            
+            
+            // if (isMandatory)
+            //     GameManager.Instance.RegisterMandatoryCollectible(this);
+
+            
+            RotationalTransform = modelTransform;
             SubscribeToTriggerListener();
-
-            (this as IRotatable).Register(MasterRotator.Instance);
-
-            if (TryGetComponent(out MeshRenderer renderer))
-            {
-                FlickeringMaterial = renderer.sharedMaterial;
-                (this as IFlickerableMaterialSender).Register(MasterFlicker.Instance);
-            }
+            Register(masterRotator);
+            Initialized = true;
         }
 
-        protected virtual void DestroyShutdown()
+        protected virtual void Shutdown()
         {
-            (this as IRotatable).UnRegister(MasterRotator.Instance);
+            //(this as IRotatable).UnRegister(MasterRotator.Instance);
             UnsubscribeFromTriggerListener();
-            if (isMandatory)
-                GameManager.Instance.UnregisterMandatoryCollectible(this);
+            // if (isMandatory)
+            //     GameManager.Instance.UnregisterMandatoryCollectible(this);
+            
+            modelTransform = null;
+            listener = null;
+            selfPool.ReturnObject(this);
+            modelPool.ReturnObject(modelTransform);
+            Initialized = false;
         }
 
         protected virtual void OnCollectEffect(Collider other)
         {
-            Destroy(gameObject);
+            Shutdown();
         }
 
         #endregion
@@ -87,28 +99,16 @@ namespace LabirinthGame.Collectibles
 
         public Vector3 RotationSpeed { get; private set; }
 
-        public void Register(MasterRotator master)
+        public void Register(IRotator rotator)
         {
-            if (master)
-                master.Register(this);
+            if (rotator!=null)
+                rotator.RotateInFixedUpdate(this);
         }
 
-        public void UnRegister(MasterRotator master)
+        public void Unregister(IRotator rotator)
         {
-            if (master != null)
-                master.Unregister(this);
-        }
-
-        #endregion
-
-
-        #region IFlickerableMaterialSender implementation
-
-        public Material FlickeringMaterial { get; private set; }
-
-        public void Register(MasterFlicker master)
-        {
-            master.Register(FlickeringMaterial);
+            if (rotator!=null)
+                rotator.StopRotateInFixedUpdate(this);
         }
 
         #endregion
@@ -136,5 +136,6 @@ namespace LabirinthGame.Collectibles
         }
 
         #endregion
+
     }
 }

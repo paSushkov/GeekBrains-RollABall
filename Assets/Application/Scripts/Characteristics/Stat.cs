@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections.Generic;
 using LabirinthGame.Common;
 using LabirinthGame.Common.Handlers;
@@ -8,15 +7,13 @@ using LabirinthGame.Effects;
 
 namespace LabirinthGame.Stats
 {
-    [Serializable]
-    public class Stat<T> where T : Enum
+    public class Stat
     {
         #region PrivateData
 
-        [SerializeField] private T _type;
-        [SerializeField] private float minValue;
-        [SerializeField] private float maxValue;
-        [SerializeField] private float normalValue;
+        private float minValue;
+        private float maxValue;
+        private float normalValue;
         private float _currentValue;
         private List<ExtraValue> _extraValues;
 
@@ -27,7 +24,6 @@ namespace LabirinthGame.Stats
 
         public float MinValue => minValue;
         public float MaxValue => maxValue;
-        public T Type => _type;
 
         public float CurrentValue
         {
@@ -50,12 +46,18 @@ namespace LabirinthGame.Stats
 
         #region ClassLifeCycles
 
-        public Stat(T type, MinMaxCurrent minMaxCurrent)
+        public Stat(MinMaxCurrent minMaxCurrent)
         {
-            _type = type;
             minValue = minMaxCurrent.minValue;
             SetMaxValue(minMaxCurrent.maxValue);
             DefaultValue = CurrentValue = minMaxCurrent.currentValue;
+        }
+        
+        public Stat(float minValue, float maxValue, float current)
+        {
+            this.minValue = minValue;
+            SetMaxValue(maxValue);
+            DefaultValue = CurrentValue = current;
         }
 
         #endregion

@@ -1,7 +1,8 @@
 {
     "name": "LabirinthGame",
     "references": [
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "ScriptableSingleton"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

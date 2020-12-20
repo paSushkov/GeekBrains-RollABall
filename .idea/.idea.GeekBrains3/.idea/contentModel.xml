@@ -9,43 +9,43 @@
           <e p="Scripts" t="Include">
             <e p="Camera" t="Include">
               <e p="CameraController.cs" t="Include" />
+              <e p="ICameraController.cs" t="Include" />
             </e>
             <e p="Characteristics" t="Include">
-              <e p="Characteristic.cs" t="Include" />
-              <e p="CharacterResource.cs" t="Include" />
               <e p="Enums" t="Include">
-                <e p="CharacteristicType.cs" t="Include" />
-                <e p="CharacterResourceType.cs" t="Include" />
+                <e p="StatType.cs" t="Include" />
               </e>
               <e p="IHaveStats.cs" t="Include" />
-              <e p="RegenerativeCharacterResource.cs" t="Include" />
+              <e p="RegenerativeStat.cs" t="Include" />
               <e p="Stat.cs" t="Include" />
               <e p="StatHolder.cs" t="Include" />
             </e>
             <e p="Collectibles" t="Include">
               <e p="CollectibleBase.cs" t="Include" />
-              <e p="ResourceChangingCollectible.cs" t="Include" />
+              <e p="ICollectibleFactory.cs" t="Include" />
+              <e p="ICollectibleManager.cs" t="Include" />
               <e p="StatChangingCollectible.cs" t="Include" />
             </e>
             <e p="Common" t="Include">
               <e p="Handlers" t="Include">
+                <e p="InputHandlers.cs" t="Include" />
                 <e p="MinMaxChanged.cs" t="Include" />
                 <e p="TriggerEventHandler.cs" t="Include" />
                 <e p="ValueChanged.cs" t="Include" />
+                <e p="VoidHandler.cs" t="Include" />
               </e>
               <e p="Interfaces" t="Include">
-                <e p="IFlickerable.cs" t="Include" />
                 <e p="IMovable.cs" t="Include" />
+                <e p="IObjectPool.cs" t="Include" />
+                <e p="IRigidbody.cs" t="Include" />
                 <e p="IRotatable.cs" t="Include" />
+                <e p="IRotator.cs" t="Include" />
                 <e p="ITrackable.cs" t="Include" />
                 <e p="ITracker.cs" t="Include" />
-                <e p="IUpdateProcessor.cs" t="Include" />
               </e>
               <e p="MinMaxCurrent.cs" t="Include" />
-              <e p="Rotator.cs" t="Include" />
               <e p="SelfDestructor.cs" t="Include" />
               <e p="Singleton.cs" t="Include" />
-              <e p="Tracker.cs" t="Include" />
               <e p="TriggerListener.cs" t="Include" />
             </e>
             <e p="Effects" t="Include">
@@ -60,22 +60,42 @@
                 <e p="IEffectApplicator.cs" t="Include" />
               </e>
               <e p="SpecificImplementations" t="Include">
-                <e p="CharacteristicChangingEffect.cs" t="Include" />
-                <e p="ResourceChangingEffect.cs" t="Include" />
-                <e p="ResourceRegenerationChangingEffect.cs" t="Include" />
-                <e p="ResourceValueChangingEffect.cs" t="Include" />
+                <e p="StatChangingEffect.cs" t="Include" />
+                <e p="StatRegenerationChangingEffect.cs" t="Include" />
+                <e p="StatValueChangingEffect.cs" t="Include" />
               </e>
             </e>
             <e p="LabirinthGame.asmdef" t="Include" />
             <e p="ManagersAndControllers" t="Include">
               <e p="GameManager.cs" t="Include" />
-              <e p="InputManager.cs" t="Include" />
-              <e p="MasterFlicker.cs" t="Include" />
-              <e p="MasterRotator.cs" t="Include" />
+              <e p="Masters" t="Include">
+                <e p="InputManagerListener.cs" t="Include" />
+                <e p="InputManagerTranslator.cs" t="Include" />
+                <e p="LinksManager.cs" t="Include" />
+                <e p="MasterManager.cs" t="Include" />
+                <e p="MasterMonoBehaviour.cs" t="Include" />
+                <e p="RotationManager.cs" t="Include" />
+              </e>
+              <e p="ObjectPool.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
+              <e p="IPlayer.cs" t="Include" />
               <e p="PlayerBase.cs" t="Include" />
               <e p="RigidbodyPlayer.cs" t="Include" />
+            </e>
+            <e p="Tech" t="Include">
+              <e p="Input" t="Include">
+                <e p="AxisInput.cs" t="Include" />
+                <e p="IInputListener.cs" t="Include" />
+                <e p="IInputTranslator.cs" t="Include" />
+              </e>
+              <e p="PlayerLoop" t="Include">
+                <e p="IPlayerLoop.cs" t="Include" />
+                <e p="IPlayerLoopProcessor.cs" t="Include" />
+                <e p="IPlayerLoopSubscriptionController.cs" t="Include" />
+                <e p="PlayerLoopProcess.cs" t="Include" />
+                <e p="PlayerLoopSubscriptionController.cs" t="Include" />
+              </e>
             </e>
             <e p="Temp" t="Include">
               <e p="RegenDebug.cs" t="Include" />

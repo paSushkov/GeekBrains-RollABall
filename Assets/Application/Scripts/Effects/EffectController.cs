@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using LabirinthGame.Common;
+using LabirinthGame.Tech.PlayerLoop;
 
 namespace LabirinthGame.Effects
 {
-    public class EffectController : IUpdateProcessor
+    public class EffectController : IPlayerLoop
     {
         private readonly List<EffectBase> effects;
         private readonly IEffectApplicable effectsHolder;
@@ -74,11 +74,21 @@ namespace LabirinthGame.Effects
 
         #region IUpdateProcessor implementation
 
+        public IPlayerLoopSubscriptionController PlayerLoopSubscriptionController { get; }
+
         public void ProcessUpdate(float deltaTime)
         {
-            TickEffects(deltaTime);
         }
-        
+
+        public void ProcessFixedUpdate(float fixedDeltaTime)
+        {
+            TickEffects(fixedDeltaTime);
+        }
+
+        public void ProcessLateUpdate(float fixedDeltaTime)
+        {
+        }
+
         #endregion
 
     }

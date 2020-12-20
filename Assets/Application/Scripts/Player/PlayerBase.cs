@@ -1,142 +1,87 @@
 ﻿using LabirinthGame.Common.Interfaces;
 using LabirinthGame.Effects;
 using LabirinthGame.Stats;
+using LabirinthGame.Tech.Input;
+using LabirinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
 namespace LabirinthGame.Player
 {
-    public abstract class PlayerBase : MonoBehaviour, IMovable, ITrackable, IHaveStats, IEffectApplicable
+    public abstract class PlayerBase : IPlayer
     {
-        #region Delegates and events
+        #region Private data
 
-        public event PositionChangeProcessor OnPositionChange;
-
-        #endregion
-        
-
-        #region PrivateData
-
-        protected float moveSpeed;
-        [SerializeField]
-        protected StatHolder statHolder = new StatHolder();
-        private bool isSubscribedForSpeedChange;
+        protected Vector3 moveInput;
         protected EffectController effectController;
-
-        #endregion
-        
-        
-        #region Properties
-        
-        public Transform CachedTransform { get; private set; }
-        
-        #endregion
-
-
-        #region Unity events
-
-        protected virtual void Awake()
-        {
-            AwakeInitialize();
-        }
-
-        protected virtual void OnDestroy()
-        {
-            DestroyShutdown();
-        }
-
-        protected virtual void FixedUpdate()
-        {
-            if (CachedTransform.hasChanged)
-            {
-                OnPositionChange?.Invoke(CachedTransform.position);
-                CachedTransform.hasChanged = false;
-            }
-            effectController.ProcessUpdate(Time.fixedDeltaTime);
-            statHolder.ProcessUpdate(Time.fixedDeltaTime);
-        }
+        protected IInputListener _inputListener;
+        private bool isSubscribedForInput;
+        private bool isSubscribedForSpeedChange;
 
         #endregion
 
 
-        #region Stats subscription management
+        #region Public methods
 
-        private void SubscribeForSpeedChange()
+        public virtual void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, Stat speedStat, IInputListener inputListener)
         {
-            if (!isSubscribedForSpeedChange && statHolder.TryGetCharacteristic(CharacteristicType.Speed, out var speed))
-            {
-                speed.CurrentChanged += ProcessSpeedChange;
-                isSubscribedForSpeedChange = true;
-
-            }
-        }
-        
-        private void UnsubscribeFromSpeedChange()
-        {
-            if (isSubscribedForSpeedChange && statHolder.TryGetCharacteristic(CharacteristicType.Speed, out var speed))
-            {
-                speed.CurrentChanged -= ProcessSpeedChange;
-            }
-            isSubscribedForSpeedChange =false;
-        }
-
-
-        #endregion
-
-
-        #region Private methods
-
-        protected virtual void AwakeInitialize()
-        {
-            effectController = new EffectController(this);
-            statHolder.Initialize();
-            CachedTransform = transform;
+            _inputListener = inputListener;
+            ModelTransform = modelTransform;
+            
+            StatHolder.AddStat(StatType.Speed, speedStat);
+            SelfMoveSpeed = speedStat.CurrentValue;
             SubscribeForSpeedChange();
-
-            if (statHolder.TryGetCharacteristic(CharacteristicType.Speed, out var speedStat))
-                moveSpeed = speedStat.CurrentValue;
-            else
-                Debug.LogWarning($"{this.name} trying to find SPEED characteristic, but cant find it!", gameObject);
+            PlayerLoopSubscriptionController.Initialize(this, playerLoopProcessor);
+            PlayerLoopSubscriptionController.SubscribeToLoop();
+            if (effectController == null)
+                effectController = new EffectController(this);
         }
 
-        protected virtual void DestroyShutdown()
+        public virtual void Shutdown()
         {
+            ModelTransform = null;
             UnsubscribeFromSpeedChange();
+            PlayerLoopSubscriptionController.Shutdown();
+            OnPositionChange = null;
+            effectController.RemoveAllInstantly();
+            StatHolder.Clear();
         }
 
-        protected void ProcessSpeedChange(float newSpeed)
-        {
-            moveSpeed = newSpeed;
-        }
 
         #endregion
-        
+
+        #region IPlayer implementation
+
+        public Transform ModelTransform { get; private set; }
+
 
         #region IMovable implementation
 
+        public float SelfMoveSpeed { get; private set; }
+
         public void MoveTo(Vector3 position)
         {
-            CachedTransform.position = position;
+            ModelTransform.position = position;
         }
 
         public abstract void MoveTowards(Vector3 position, float speed);
-        
+
         public abstract void Move(Vector3 direction, float speed);
 
         #endregion
 
-        
+
         #region ITrackable implementation
 
-        public Vector3 GetPosition()
-        {
-            return CachedTransform.position;
-        }
+        public event PositionChangeProcessor OnPositionChange;
+
+        public Vector3 Position => ModelTransform ? ModelTransform.position : Vector3.zero;
 
         #endregion
 
+
         #region IHaveStats implementation
 
-        public StatHolder StatHolder => statHolder;
+        public StatHolder StatHolder { get; } = new StatHolder();
 
         #endregion
 
@@ -147,7 +92,67 @@ namespace LabirinthGame.Player
         {
             effectController.ApplyEffect(effect);
         }
-        
+
+        #endregion
+
+
+        #region IPlayerLoop implementation
+
+        public IPlayerLoopSubscriptionController PlayerLoopSubscriptionController { get; }
+            = new PlayerLoopSubscriptionController();
+
+        public virtual void ProcessUpdate(float deltaTime)
+        {
+        }
+
+        public virtual void ProcessFixedUpdate(float fixedDeltaTime)
+        {
+            Debug.Log("ProcessFixedUpdate BASE");
+            if (ModelTransform.hasChanged)
+            {
+                OnPositionChange?.Invoke(ModelTransform.position);
+                ModelTransform.hasChanged = false;
+            }
+
+            StatHolder.ProcessFixedUpdate(fixedDeltaTime);
+
+        }
+
+        public void ProcessLateUpdate(float fixedDeltaTime)
+        {
+        }
+
+        #endregion
+
+
+        #endregion
+
+        #region Private methods
+
+        protected void ProcessSpeedChange(float newSpeed)
+        {
+            SelfMoveSpeed = newSpeed;
+        }
+
+        private void SubscribeForSpeedChange()
+        {
+            if (!isSubscribedForSpeedChange && StatHolder.TryGetStat(StatType.Speed, out var speed))
+            {
+                speed.CurrentChanged += ProcessSpeedChange;
+                isSubscribedForSpeedChange = true;
+            }
+        }
+
+        private void UnsubscribeFromSpeedChange()
+        {
+            if (isSubscribedForSpeedChange && StatHolder.TryGetStat(StatType.Speed, out var speed))
+            {
+                speed.CurrentChanged -= ProcessSpeedChange;
+            }
+
+            isSubscribedForSpeedChange = false;
+        }
+
         #endregion
     }
 }

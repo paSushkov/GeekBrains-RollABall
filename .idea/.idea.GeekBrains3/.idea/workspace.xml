@@ -1,104 +1,226 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="078af3f0-684f-40d5-905d-dc5b31cb8ceb" name="Default Changelist" comment="" />
+    <list default="true" id="078af3f0-684f-40d5-905d-dc5b31cb8ceb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/ICameraController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/ICameraController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/InputHandlers.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/InputHandlers.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/VoidHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/VoidHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IObjectPool.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IObjectPool.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRigidbody.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRigidbody.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerListener.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerListener.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerTranslator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerTranslator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/ObjectPool.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/ObjectPool.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/AxisInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/AxisInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputTranslator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputTranslator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopProcessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopProcessor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopSubscriptionController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopSubscriptionController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopProcess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopProcess.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopSubscriptionController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopSubscriptionController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/CharacterResource.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/CharacterResource.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Characteristic.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Characteristic.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacterResourceType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacterResourceType.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacteristicType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacteristicType.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeCharacterResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeCharacterResource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeStat.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ResourceChangingCollectible.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ResourceChangingCollectible.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IFlickerable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IFlickerable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITrackable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITrackable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IUpdateProcessor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IUpdateProcessor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoop.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Rotator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Rotator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Tracker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Tracker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/ExtraValue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/ExtraValue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/CharacteristicChangingEffect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/CharacteristicChangingEffect.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceChangingEffect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceRegenerationChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceRegenerationChangingEffect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceValueChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceValueChangingEffect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGame.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGame.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterFlicker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterFlicker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterRotator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterRotator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Tracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Effects/Enums/EffectTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/RotationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterRotator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterMonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://S:/Unity/Editors/2019.4.13f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/SelfDestructor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IUpdateProcessor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacterResourceType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IFlickerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.1.3/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/TriggerEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/ValueChanged.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.pavel_sushkov.singletonscriptableobject@4ba742e0fb/Runtime/Scripts/SingletonScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITrackable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterFlicker.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Common/Rotator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/Новая папка (2)/RotationManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/LinksManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegeneratableCharacteristic.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeCharacteristic.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IUpdateProcessor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Handlers/CharacteristicMinMaxChanged.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Handlers/MinMaxChanged.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Handlers/ValueChanged.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/CharacteristicHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Resourse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/ResourceHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeStat.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeResouce.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/ResourceType.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacteristicType.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Statsss.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeResource.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Resource.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Characteristic.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/CharacterResourceType.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/CharacterResource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/AxisInputComplexHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/GameLoopSubscriber.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/PlayerLoopSubscriber.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IPlayerLoopSubscriber.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/PlayerLoop/IUpdate.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/PlayerLoop/IPlayerLoop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/IPlayerLoopSubscriptionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/PlayerLoop/IPlayerLoopProcessor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/InputListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/AxisInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/InputHandlers.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputTranslator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/PlayerLoopSubscriptionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/PlayerLoopSubscriptionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopProcess.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRigidbody.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITrackable.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/IHaveStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/SpeedChangeTemp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/TriggerListener.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/SpeedBonusCollectible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterRotator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingBonus.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IPlayerLoopSubscriptionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/InputListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/CharacteristicChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/SpeedChangeTempEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/ExtraValue.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceRegenerationChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/ResourceValueChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ResourceChangingCollectible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeCharacterResource.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/ThirdParty/LabyrinthGenerator/Assets/Scripts/Runtime/LabyrinthGenerator/LabyrinthGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Camera/ICameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeStat.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopProcessor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Tracker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/RotationManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerTranslator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/LinksManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITracker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/MinMaxChanged.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/VoidDelegate.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopSubscriptionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopSubscriptionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterMonoBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1lIv7JSjlp0hXfaKCUfWgOZRVmN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -156,6 +278,8 @@
       <workItem from="1607800787051" duration="1864000" />
       <workItem from="1607803320093" duration="202000" />
       <workItem from="1607805053840" duration="1569000" />
+      <workItem from="1608313954794" duration="1582000" />
+      <workItem from="1608318832717" duration="70120000" />
     </task>
     <servers />
   </component>
@@ -164,6 +288,18 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
@@ -172,13 +308,29 @@
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
     <state x="100" y="100" width="2360" height="1209" key="DiffContextDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1607797358651" />
-    <state x="1086" y="406" key="RiderGenerateDialog" timestamp="1607797191551">
+    <state x="1086" y="406" key="RiderGenerateDialog" timestamp="1608388101913">
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
-    <state x="1086" y="406" key="RiderGenerateDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1607797191551" />
-    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup" timestamp="1607454307591">
+    <state x="1086" y="406" key="RiderGenerateDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608388101913" />
+    <state x="93" y="93" width="2375" height="1224" key="VCS.FileHistoryDialog" timestamp="1608390743333">
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
-    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1607454307591" />
+    <state x="93" y="93" width="2375" height="1224" key="VCS.FileHistoryDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608390743333" />
+    <state x="441" y="0" width="2133" height="1396" key="dock-window-1" timestamp="1608390743333">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="441" y="0" width="2133" height="1396" key="dock-window-1/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608390743333" />
+    <state x="3840" y="196" width="1936" height="1121" maximized="true" key="dock-window-2" timestamp="1608390743333">
+      <screen x="3840" y="196" width="1920" height="1034" />
+    </state>
+    <state x="3840" y="196" width="1936" height="1121" maximized="true" key="dock-window-2/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608390743333" />
+    <state x="937" y="333" key="run.anything.popup" timestamp="1608352026447">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="937" y="333" key="run.anything.popup/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608352026447" />
+    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup" timestamp="1608389941291">
+      <screen x="0" y="0" width="2560" height="1409" />
+    </state>
+    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608389941291" />
   </component>
 </project>

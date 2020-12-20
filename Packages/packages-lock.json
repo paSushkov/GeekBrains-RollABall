@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "6937aca0c8829ce70f6d8f351989792a65f9004f"
     },
+    "com.pavel_sushkov.singletonscriptableobject": {
+      "version": "https://github.com/paSushkov/SingletonScriptableObject.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4ba742e0fb10a35d005b56124941af6829f02bb5"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,

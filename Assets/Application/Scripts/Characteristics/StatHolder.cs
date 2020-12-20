@@ -1,77 +1,96 @@
-﻿using System;
-using System.Collections.Generic;
-using LabirinthGame.Common;
+﻿using System.Collections.Generic;
+using LabirinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
 namespace LabirinthGame.Stats
 {
-    [Serializable]
-    public class StatHolder : IUpdateProcessor
+    // TODO: Re-implement with interface
+    public class StatHolder : IPlayerLoop
     {
         #region PrivateData
 
-        // Once upon a time i will write for myself a serializeble Dictionary
-        [SerializeField] private List<RegenerativeCharacterResource> resources = new List<RegenerativeCharacterResource>();
-        [SerializeField] private List<Characteristic> characteristics = new List<Characteristic>();
+        private readonly Dictionary<StatType, Stat> _stats = new Dictionary<StatType, Stat>();
+        private readonly List<IPlayerLoop> _selfDynamicStats = new List<IPlayerLoop>();
 
         #endregion
 
+        
+        
+        #region Stat management
 
-        #region Properties
+        public bool TryGetStat(StatType type, out Stat stat)
+        {
+            if (_stats.ContainsKey(type))
+            {
+                stat = _stats [type];
+                return true;
+            }
 
-        public List<RegenerativeCharacterResource> Resources => resources;
-        public List<Characteristic> Characteristics => characteristics;
+            stat = null;
+            return false;
+        }
+        
+        public void AddStat(StatType type, Stat stat)
+        {
+            if (_stats.ContainsKey(type))
+            {
+                Debug.LogWarning($"Attempt to add resource of type, which is already presented in {GetType().Name}");
+                return;
+            }
+            
+            _stats?.Add(type, stat);
+            stat.Initialize();
+            
+            if (stat is IPlayerLoop processor)
+            {
+                _selfDynamicStats.Add(processor);
+            }
+        }
+        
+        public void RemoveStat(StatType type)
+        {
+            if (_stats.TryGetValue(type, out var stat))
+            {
+                if (stat is IPlayerLoop dynamic && _selfDynamicStats.Contains(dynamic))
+                {
+                    _selfDynamicStats.Remove(dynamic);
+                }
+
+                _stats.Remove(type);
+            }
+            else
+            {
+                Debug.LogWarning($"Attempt to remove resource of type, which is not presented in {GetType().Name}");
+            }
+        }
+    
+        public void Clear()
+        {
+            _stats.Clear();
+            _selfDynamicStats.Clear();
+        }
 
         #endregion
         
-
-        #region Methods
-
-        public void Initialize()
-        {
-            foreach (var resource in resources)
-                resource.Initialize();
-
-            foreach (var characteristic in characteristics)
-                characteristic.Initialize();
-        }
-
-        public void ProcessUpdate(float deltaTile)
-        {
-            foreach (var resource in resources)
-            {
-                resource.Regenerate(deltaTile);
-            }
-        }
         
-        public bool TryGetResource(CharacterResourceType type, out CharacterResource resource)
+        #region IPlayerLoop implementation
+
+        public IPlayerLoopSubscriptionController PlayerLoopSubscriptionController { get; }
+
+        public void ProcessUpdate(float deltaTime)
         {
-            if (resources != null)
-            {
-                foreach (var _resource in resources)
-                {
-                    if (_resource.Type != type) continue;
-                    resource = _resource;
-                    return true;
-                }
-            }
-            resource = null;
-            return false;
         }
-        
-        public bool TryGetCharacteristic(CharacteristicType type, out Characteristic characteristic)
+
+        public void ProcessFixedUpdate(float fixedDeltaTime)
         {
-            if (characteristics != null)
+            foreach (var processor in _selfDynamicStats)
             {
-                foreach (var _characteristic in characteristics)
-                {
-                    if (_characteristic.Type != type) continue;
-                    characteristic = _characteristic;
-                    return true;
-                }
+                processor.ProcessFixedUpdate(fixedDeltaTime);
             }
-            characteristic = null;
-            return false;
+        }
+
+        public void ProcessLateUpdate(float fixedDeltaTime)
+        {
         }
 
         #endregion
