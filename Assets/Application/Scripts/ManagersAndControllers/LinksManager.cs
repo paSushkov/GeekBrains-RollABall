@@ -23,7 +23,7 @@ namespace LabyrinthGame.Managers
         [SerializeField] private UserInputManager userInputManager = null;
         [SerializeField] private LabyrinthElementsHolder elementsHolder = null;
         [SerializeField] private EffectsSetLibrary effectsSetLibrary;
-        [SerializeField] private StatsAsset statsAsset;
+        [SerializeField] private StatsAsset statsLibrary;
         private Dictionary<IHaveTransform, Transform> _transformRegistry = new Dictionary<IHaveTransform, Transform>();
         private Labyrinth _labyrinth;
         private ICollectibleFactory _collectibleFactory;
@@ -40,7 +40,7 @@ namespace LabyrinthGame.Managers
         public IUserInputManager UserInputManager => userInputManager;
         public IlabirinthElementsHolder LevelElementsHolder => elementsHolder;
         public EffectsSetLibrary EffectsSetLibrary => effectsSetLibrary;
-        public StatsAsset CharactersStatsAsset => statsAsset;
+        public StatsAsset StatsLibrary => statsLibrary;
 
         
         #endregion

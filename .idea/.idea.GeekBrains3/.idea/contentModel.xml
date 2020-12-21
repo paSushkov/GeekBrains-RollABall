@@ -20,6 +20,7 @@
               <e p="RegenerativeStat.cs" t="Include" />
               <e p="Stat.cs" t="Include" />
               <e p="StatHolder.cs" t="Include" />
+              <e p="StatIconDictionary.cs" t="Include" />
               <e p="StatsAsset.cs" t="Include" />
               <e p="StatsDictiontary.cs" t="Include" />
               <e p="StatSet.cs" t="Include" />
@@ -42,6 +43,7 @@
               </e>
               <e p="Interfaces" t="Include">
                 <e p="IHaveModel.cs" t="Include" />
+                <e p="IJump.cs" t="Include" />
                 <e p="IListenTrigger.cs" t="Include" />
                 <e p="IMovable.cs" t="Include" />
                 <e p="IObjectPool.cs" t="Include" />

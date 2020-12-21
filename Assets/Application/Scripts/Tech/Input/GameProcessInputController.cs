@@ -67,6 +67,7 @@ namespace LabyrinthGame.Tech.Input
         public void ProcessUpdate(float deltaTime)
         {
             playerController.MoveDirection = InputToDirection();
+            JumpInput();
         }
 
         public void ProcessFixedUpdate(float fixedDeltaTime)
@@ -86,6 +87,12 @@ namespace LabyrinthGame.Tech.Input
         {
             var direction = new Vector3(_inputListener.Horizontal, 0, _inputListener.Vertical);
             return Vector3.ClampMagnitude(direction, 1f);
+        }
+
+        private void JumpInput()
+        {
+            if (_inputListener.Jump>0f)
+                playerController.Jump();
         }
 
         #endregion

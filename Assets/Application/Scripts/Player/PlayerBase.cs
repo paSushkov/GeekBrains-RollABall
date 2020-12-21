@@ -14,6 +14,10 @@ namespace LabyrinthGame.Player
         private EffectController effectController;
         private bool isSubscribedForInput;
         private bool isSubscribedForSpeedChange;
+        private bool isSubscribedForJumpPowerChange;
+        protected Stat jumpStat;
+        protected bool jumpIsReady;
+        protected bool jumpRequested;
 
         #endregion
 
@@ -22,21 +26,15 @@ namespace LabyrinthGame.Player
 
         public Vector3 MoveDirection { get; set; }
         
-        public virtual void Initialize(Transform gameTransform, IPlayerLoopProcessor playerLoopProcessor, StatsDictionary stats)
+        public virtual void Initialize(Transform gameTransform, IPlayerLoopProcessor playerLoopProcessor, StatsDictionary stats, float jumpPower)
         {
             GameTransform = gameTransform;
             RegisterAsTransformOwner();
             MaxMoveSpeed = 50f;
+            JumpPower = jumpPower;
             InitializeStats(stats);
-            
-            if (StatHolder.TryGetStat(StatType.Speed, out var speed))
-            {
-                MoveSpeed = speed.CurrentValue;
-                MaxMoveSpeed = speed.MaxValue;
-                MaxMoveSpeedSqr = MaxMoveSpeed * MaxMoveSpeed;
-                SubscribeForSpeedChange();
-            }
-
+            SubscribeForSpeedChange();
+            SubscribeJumpPowerChange();
             PlayerLoopSubscriptionController.Initialize(this, playerLoopProcessor);
             PlayerLoopSubscriptionController.SubscribeToLoop();
             if (effectController == null)
@@ -48,15 +46,17 @@ namespace LabyrinthGame.Player
             DisposeTransform();
             GameTransform = null;
             UnsubscribeCurrentSpeedChange();
+            UnsubscribeJumpPowerChange();
             PlayerLoopSubscriptionController.Shutdown();
             OnPositionChange = null;
-            effectController.RemoveAllInstantly();
+            effectController?.RemoveAllInstantly();
             StatHolder.Clear();
         }
 
         #region IMovable implementation
 
         public float MoveSpeed { get; private set; }
+        
         public float MaxMoveSpeed { get; private set; }
         public float MaxMoveSpeedSqr { get; private set; }
 
@@ -71,6 +71,13 @@ namespace LabyrinthGame.Player
 
         #endregion
 
+        #region IJump implementation
+
+        public float JumpPower { get; set; }
+        public abstract void Jump();
+
+        #endregion
+        
 
         #region ITrackable implementation
 
@@ -151,6 +158,12 @@ namespace LabyrinthGame.Player
             MoveSpeed = newSpeed;
         }
         
+        protected void ProcessJumpChange(float newPower)
+        {
+            if ( !jumpIsReady && jumpStat.MaxValue - newPower < 0.01f)
+                jumpIsReady = true;
+        }
+        
         protected void ProcessMaxSpeedChange(float newMin, float newMax)
         {
             MaxMoveSpeed = newMax;
@@ -161,6 +174,9 @@ namespace LabyrinthGame.Player
         {
             if (!isSubscribedForSpeedChange && StatHolder.TryGetStat(StatType.Speed, out var speed))
             {
+                MoveSpeed = speed.CurrentValue;
+                MaxMoveSpeed = speed.MaxValue;
+                MaxMoveSpeedSqr = MaxMoveSpeed * MaxMoveSpeed;
                 speed.MinMaxChanged += ProcessMaxSpeedChange;
                 speed.CurrentChanged += ProcessSpeedChange;
                 isSubscribedForSpeedChange = true;
@@ -176,6 +192,26 @@ namespace LabyrinthGame.Player
             }
 
             isSubscribedForSpeedChange = false;
+        }
+        
+        private void SubscribeJumpPowerChange()
+        {
+            if (!isSubscribedForJumpPowerChange && StatHolder.TryGetStat(StatType.JumpPower, out jumpStat))
+            {
+                ProcessJumpChange(jumpStat.CurrentValue);
+                jumpStat.CurrentChanged += ProcessJumpChange;
+                isSubscribedForJumpPowerChange = true;
+            }
+        }
+        
+        private void UnsubscribeJumpPowerChange()
+        {
+            if (isSubscribedForJumpPowerChange && jumpStat!=null)
+            {
+                jumpStat.CurrentChanged -= ProcessJumpChange;
+            }
+
+            isSubscribedForJumpPowerChange = false;
         }
 
         private void InitializeStats(StatsDictionary stats)

@@ -20,159 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="078af3f0-684f-40d5-905d-dc5b31cb8ceb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatSet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatSet.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsAsset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsAsset.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsDictiontary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsDictiontary.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectible.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IListenTrigger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IListenTrigger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSet.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/IlabirinthElementsHolder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/IlabirinthElementsHolder.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/Labyrinth.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/Labyrinth.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Helper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Helper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/UnitySerializedDictionary.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/UnitySerializedDictionary/UnitySerializedDictionary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/UnitySerializedDictionary/UnitySerializedDictionary.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatIconDictionary.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatIconDictionary.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJump.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJump.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Assets/Links Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Assets/Links Manager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Assets/Master Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Assets/Master Manager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Materials/GoldenMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Materials/GoldenMaterial.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Materials/RedMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Materials/RedMaterial.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Materials/SIlver.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Materials/SIlver.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/PhysicsMaterials/Ball.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/PhysicsMaterials/Ball.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/PhysicsMaterials/Floor.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/PhysicsMaterials/Floor.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/Coin.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/Coin.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPDown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPDown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPRegenDown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPRegenDown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPRegenUp.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPRegenUp.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPUp.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/HPUp.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/SpeedDown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/SpeedDown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/SpeedUp.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Collectibles/SpeedUp.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Floor.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/Floor.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/StoneWall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Prefabs/Content/StoneWall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Assets/Stats Asset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Assets/Stats Asset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/UI/PlayerStatBar.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Prefabs/UI/PlayerStatBar.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/ICameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/ICameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/IHaveStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/IHaveStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/RegenerativeStat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/InputHandlers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/InputHandlers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/MinMaxChanged.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/MinMaxChanged.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/TriggerEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/TriggerEventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/ValueChanged.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/ValueChanged.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/VoidHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Handlers/VoidHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IHaveModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IHaveModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IMovable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRigidbody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRigidbody.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITrackable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITrackable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/ITracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/SelfDestructor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/SelfDestructor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/Singleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Common/TriggerListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Common/TriggerListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Enums/EffectTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Enums/EffectTypes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/ExtraValue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/ExtraValue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Interfaces/IEffectApplicator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManagerListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerListener.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManagerListener.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerTranslator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManagerTranslator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/InputManagerTranslator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManagerTranslator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/LinksManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/LinksManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterMonoBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/RotationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/RotationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/RotationManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/RotationManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/UserInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/UserInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/UserInputManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/UserInputManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/ObjectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/AxisInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/AxisInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputTranslator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputTranslator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IUserInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IUserInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/InputControllerChanged.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/InputControllerChanged.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopProcessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopSubscriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/IPlayerLoopSubscriptionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopProcess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopProcess.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopSubscriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/PlayerLoop/PlayerLoopSubscriptionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/RegenDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Temp/StatDebug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/LabyrinthGenerator/Assets/Scripts/Runtime/LabyrinthGenerator/LabyrinthGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/LabyrinthGenerator/Assets/Scripts/Runtime/LabyrinthGenerator/LabyrinthGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/Materials/gold_bar_color.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/Materials/gold_bar_color.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/Materials/gold_coin_color.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/Materials/gold_coin_color.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_bar_Specular.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_bar_Specular.tif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_bar_color.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_bar_color.tif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_bar_normals.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_bar_normals.tif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_coin_Specular.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_coin_Specular.tif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_coin_color.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_coin_color.tif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_coin_normals.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Medieval_Gold/textures/gold_coin_normals.tif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,21 +88,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterMonoBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/Masters/MasterManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/SUIMONO - WATER SYSTEM 2/EDITOR/suimono_module_editor.cs" />
-        <option value="$PROJECT_DIR$/Assets/SUIMONO - WATER SYSTEM 2/SCRIPTS/SuimonoModuleFX.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/SUIMONO - WATER SYSTEM 2/SCRIPTS/cameraCausticsHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IListenTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectible.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IHaveModel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/PositionSetter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MaterialsAndTextures.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/SerializebleDictionary/SerializableDictionary.cs" />
@@ -258,18 +120,25 @@
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/EffectsSetLibrary.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/StatsAsset.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsDictiontary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatSet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsAsset.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsIcons.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatIconDictionary.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJumpable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJump.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsAsset.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" />
       </list>
     </option>
   </component>
@@ -335,6 +204,7 @@
       <workItem from="1608313954794" duration="1582000" />
       <workItem from="1608318832717" duration="70120000" />
       <workItem from="1608462727023" duration="66598000" />
+      <workItem from="1608556548767" duration="11042000" />
     </task>
     <servers />
   </component>

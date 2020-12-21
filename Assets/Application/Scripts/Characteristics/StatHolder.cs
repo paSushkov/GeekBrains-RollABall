@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
@@ -13,7 +14,12 @@ namespace LabyrinthGame.Stats
         private readonly List<IPlayerLoop> _selfDynamicStats = new List<IPlayerLoop>();
 
         #endregion
-        
+
+        #region Properties
+
+        public StatType[] ActiveStats => _stats.Keys.ToArray();
+
+        #endregion
         
         #region Stat management
 

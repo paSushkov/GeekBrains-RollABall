@@ -10,8 +10,6 @@ namespace LabyrinthGame.Effects
     {
 
         [SerializeField] private List<EffectSet> effects = new List<EffectSet>();
-        [SerializeField] private Material goldCoin = null;
-        [SerializeField] private Material silverCoin = null;
 
         public EffectSet GetRandomEffectSet()
         {

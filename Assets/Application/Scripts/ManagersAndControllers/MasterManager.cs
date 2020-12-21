@@ -5,10 +5,10 @@ using LabyrinthGame.Collectibles;
 using LabyrinthGame.Common;
 using LabyrinthGame.LevelGenerator;
 using LabyrinthGame.Player;
-using LabyrinthGame.Stats;
 using LabyrinthGame.Tech;
 using LabyrinthGame.Tech.Input;
 using LabyrinthGame.Tech.PlayerLoop;
+using LabyrinthGame.UI;
 using Sushkov.SingletonScriptableObject;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,11 +23,19 @@ namespace LabyrinthGame.Managers
         [SerializeField] private LinksManager linksHolder = null;
         private LabyrinthGenerator _levelGenerator = null;
         private List<GameObject> instantiatedObjects = new List<GameObject>();
+        
+        // TODO: move all loaded resources to separate container. It gets messy
         private GameObject[] _playerModels;
         private GameObject _cameraPrefab;
         private GameObject _coinPrefab;
         private Material _silverMat;
         private Material _goldMat;
+        private GameObject uiCanvas;
+        private GameObject statsHud;
+        private GameObject statBar;
+        private GameObject winScreen;
+        private Transform activeCanvas;
+        private GameObject activeWinScreen;
 
 
         #region Properties
@@ -50,8 +58,9 @@ namespace LabyrinthGame.Managers
 
         #region Public methods
 
-        public void Initialize(IPlayerLoopProcessor playerLoopProcessor, Transform levelRoot = null)
+        public void Initialize(IPlayerLoopProcessor playerLoopProcessor, Transform canvas, Transform levelRoot = null)
         {
+            activeCanvas = canvas;
             mandatoryScore = 0;
 
             var labyrinth = GenerateLabyrinth(levelRoot);
@@ -69,13 +78,13 @@ namespace LabyrinthGame.Managers
 
             // Temp
             LinksHolder.ActivePlayer = new RigidbodyPlayer();
-            LinksHolder.ActivePlayer.Initialize(player.transform, playerLoopProcessor, LinksHolder.CharactersStatsAsset.DefaultPlayerStats);
+            LinksHolder.ActivePlayer.Initialize(player.transform, playerLoopProcessor, LinksHolder.StatsLibrary.DefaultPlayerStats,LinksHolder.StatsLibrary.DefaultJumpPower);
             LinksHolder.CameraController.Initialize(playerLoopProcessor, camera.transform);
             LinksHolder.CameraController.StartTracking(LinksHolder.ActivePlayer);
             LinksHolder.UserInputManager.GetGameActiveController().Start();
 
             GenerateCollectibleItems(50, 50);
-
+            InstantiateUI();
         }
 
         public void Shutdown()
@@ -92,12 +101,17 @@ namespace LabyrinthGame.Managers
 
         private void LoadResources()
         {
+            // TODO: in a separate container make editor-exposed fields to determine path for each essencial resource
             _cameraPrefab = Resources.Load("Prefabs/MainCamera", typeof(GameObject)) as GameObject;
             _playerModels = Resources.LoadAll("Prefabs/PlayerModels").Cast<GameObject>().ToArray();
             _coinPrefab = Resources.Load("Prefabs/Collectibles/Coins/Coin", typeof(GameObject)) as GameObject;
             _silverMat = Resources.Load("Materials/CoinsMaterials/silver_coin_color", typeof(Material)) as Material;
             _goldMat = Resources.Load("Materials/CoinsMaterials/gold_coin_color", typeof(Material)) as Material;
 
+            uiCanvas = Resources.Load("Prefabs/UI/HUDCanvas", typeof(GameObject)) as GameObject;
+            statsHud = Resources.Load("Prefabs/UI/StatsHUD", typeof(GameObject)) as GameObject;
+            statBar = Resources.Load("Prefabs/UI/PlayerStatBar", typeof(GameObject)) as GameObject;
+            winScreen = Resources.Load("Prefabs/UI/WinMessage", typeof(GameObject)) as GameObject;
         }
 
         private GameObject InstantiateCamera()
@@ -116,9 +130,9 @@ namespace LabyrinthGame.Managers
             return player;
         }
 
-        private GameObject InstantiateObject(GameObject obj = null)
+        private GameObject InstantiateObject(GameObject obj = null, Transform parent = null)
         {
-            var newObject = obj != null?  Instantiate(obj) : new GameObject();
+            var newObject = obj != null ? Instantiate(obj, parent) : Instantiate(new GameObject(), parent);
             instantiatedObjects.Add(newObject);
             return newObject;
         }
@@ -226,6 +240,24 @@ namespace LabyrinthGame.Managers
                     
                 }
             }
+        }
+
+        private void InstantiateUI()
+        {
+            //var canvas = InstantiateObject(uiCanvas);
+            var canvas = activeCanvas;
+            var statsHud = InstantiateObject(this.statsHud, canvas);
+            var player = LinksHolder.ActivePlayer;
+            foreach (var statType in LinksHolder.ActivePlayer.StatHolder.ActiveStats)
+            {
+                var handlerObj = InstantiateObject(statBar, statsHud.transform);
+                
+                if (handlerObj.TryGetComponent(out BarHandler handler))
+                {
+                    handler.Initialize(statType, player);                    
+                }
+            }
+            activeWinScreen = InstantiateObject(winScreen, canvas);
         }
 
         #endregion

@@ -21,11 +21,11 @@ namespace LabyrinthGame.Player
         #endregion
 
 
-        #region Private methods
+        #region Public methods
 
-        public override void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, StatsDictionary stats)
+        public override void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, StatsDictionary stats, float jumpPower)
         {
-            base.Initialize(modelTransform, playerLoopProcessor, stats);
+            base.Initialize(modelTransform, playerLoopProcessor, stats, jumpPower);
             if (modelTransform.TryGetComponent<Rigidbody>(out var cachedRigidBody))
                 ModelRigidbody = cachedRigidBody;
             else
@@ -51,6 +51,25 @@ namespace LabyrinthGame.Player
 
         #endregion
 
+
+        #region Private methods
+
+        private void TryPerformJump()
+        {
+            jumpRequested = false;
+            if (jumpIsReady && Physics.Raycast(GameTransform.position, Vector3.down, 0.6f))
+            {
+                Debug.Log("AAAA "+jumpStat.CurrentValue);
+                jumpIsReady = false;
+                ModelRigidbody.AddForce(Vector3.up * JumpPower, ForceMode.Impulse);
+                if (jumpStat!= null) 
+                    jumpStat.CurrentValue = jumpStat.MinValue;
+
+            }
+        }
+
+        #endregion
+
         
         #region IFixedUpdateProcessor implementation
 
@@ -58,6 +77,8 @@ namespace LabyrinthGame.Player
         {
             if (MoveDirection.sqrMagnitude>0f)
                 Move(MoveDirection, MoveSpeed);
+            if (jumpRequested)
+                TryPerformJump();
             base.ProcessFixedUpdate(fixedDeltaTime);
         }
 
@@ -81,6 +102,16 @@ namespace LabyrinthGame.Player
             {
                 ModelRigidbody.velocity = Vector3.ClampMagnitude(currentVelocity, MaxMoveSpeed);
             }
+        }
+
+        #endregion
+
+        
+        #region IJump implementation
+
+        public override void Jump()
+        {
+            jumpRequested = true;
         }
 
         #endregion

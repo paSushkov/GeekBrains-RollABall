@@ -70,5 +70,19 @@ MonoBehaviour:
     minDuration: 5
     maxDuration: 15
     icon: {fileID: 21300000, guid: d5253c3d375658545b41b4ef7726835e, type: 3}
-  goldCoin: {fileID: 0}
-  silverCoin: {fileID: 0}
+  - gameEffectType: 1
+    gameStatType: 4
+    affectRegen: 1
+    minAmount: 5
+    maxAmount: 10
+    minDuration: 10
+    maxDuration: 30
+    icon: {fileID: 21300000, guid: b4dfdb2477dac1a498e9d0c85b3f84cb, type: 3}
+  - gameEffectType: 2
+    gameStatType: 4
+    affectRegen: 1
+    minAmount: 5
+    maxAmount: 10
+    minDuration: 10
+    maxDuration: 30
+    icon: {fileID: 21300000, guid: f993594f8c8d25547b9141c80cd474da, type: 3}

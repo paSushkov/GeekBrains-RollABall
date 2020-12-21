@@ -9,6 +9,7 @@ namespace LabyrinthGame.Managers
     public class MasterMonoBehaviour : Singleton<MasterMonoBehaviour>, IPlayerLoopProcessor
     {
         [SerializeField] private MasterManager masterManager = null;
+        [SerializeField] private Transform canvas = null;
         private event PlayerLoopProcess UpdateHandlers = null;
         private event PlayerLoopProcess FixedUpdateHandlers = null;
         private event PlayerLoopProcess LateUpdateHandlers = null;
@@ -23,7 +24,7 @@ namespace LabyrinthGame.Managers
         {
             DontDestroyOnLoad(gameObject);
             if (masterManager)
-                masterManager.Initialize(this);
+                masterManager.Initialize(this, canvas);
             test = masterManager.LinksHolder.Labyrinth.CellsPositions;
         }
 

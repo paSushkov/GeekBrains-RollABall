@@ -21,8 +21,15 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  statsIcons:
+    keyData: 01000000030000000000000004000000
+    valueData:
+    - {fileID: 21300000, guid: e67db04138977b04aaeb6e7c984ec031, type: 3}
+    - {fileID: 21300000, guid: 2986fece11e366e43aa063ab610dff01, type: 3}
+    - {fileID: 21300000, guid: d1dbd12452d59fd4da8000281754041a, type: 3}
+    - {fileID: 21300000, guid: bfa0a9255fed4a2429dd6316c65235c6, type: 3}
   playerStatDictionary:
-    keyData: 0100000003000000
+    keyData: 010000000300000004000000
     valueData:
     - amount:
         minValue: 0
@@ -36,3 +43,10 @@ MonoBehaviour:
         currentValue: 50
       regenerative: 0
       regenerativeForce: 0
+    - amount:
+        minValue: 0
+        maxValue: 100
+        currentValue: 100
+      regenerative: 1
+      regenerativeForce: 20
+  defaultJumpPower: 40

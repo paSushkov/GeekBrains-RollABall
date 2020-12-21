@@ -15,48 +15,53 @@ namespace LabyrinthGame.UI
         [SerializeField] private bool rotateToCamera = true;
         [SerializeField] private Image content = null;
         [SerializeField] private TextMeshProUGUI valueText = null;
+        [SerializeField] private TextMeshProUGUI regenText = null;
         [SerializeField] private float lerpSpeed = 2f;
         [SerializeField] private Color fullColor = Color.green;
         [SerializeField] private Color lowColor = Color.red;
+        [SerializeField] private Color positiveRegen = Color.green;
+        [SerializeField] private Color negativeRegen = Color.red;
+        [SerializeField] private Image icon;
         [SerializeField] bool changeColor;
-        private IPlayer player = null;
-        [SerializeField] private StatType type;
-        private Stat stat;
+        private IPlayer _player = null;
+        private Stat _stat;
+        private RegenerativeStat _regenStat; 
         private float _fillAmount;
-        private bool _isSubscibed;
+        private bool _isSubscribed;
         private Transform _cameraTransform;
         private Transform _selfTransform;
-        
-        #endregion
-        
-        #region Properties
-        
-        public float MaxValue { get; set; }
-        
-        
-        public float Value
-        {
-            set
-            {
-                valueText.text = value.ToString("# ###") + " / " + MaxValue.ToString("# ###");
-                _fillAmount = Map(value, 0, MaxValue, 0, 1);
-            }
-        }
-
+        private float _minValue;
+        private float _maxValue;
+        private float _currentValue;
+        private float _regenValue;
         
         #endregion
         
         
         #region UnityMethods
         
-        private void Start()
+        public void Initialize(StatType statType, IPlayer player)
         {
-            player = MasterManager.Instance.LinksHolder.ActivePlayer;
-            if (player.StatHolder.TryGetStat(type, out stat))
+            if (_isSubscribed)
+                UnsubscribeFromSource();
+            
+            _player = player;
+            if (_player.StatHolder.TryGetStat(statType, out _stat))
             {
+                icon.sprite = MasterManager.Instance.LinksHolder.StatsLibrary.GetStatIcon(statType);
+                _maxValue = _stat.MaxValue;
+                _minValue = _stat.MinValue;
+                _currentValue = _stat.CurrentValue;
+                if (_stat is RegenerativeStat stat)
+                {
+                    _regenStat = stat;
+                    _regenValue = _regenStat.CurrentRegenerationAmount;
+                    regenText.gameObject.SetActive(true);
+                }
                 SubscribeForSource();
-                MaxValue = stat.MaxValue;
-                Value = stat.CurrentValue;
+
+                UpdateValueText();
+                UpdateRegenText();
         
                 if (changeColor)
                     content.color = Color.Lerp(lowColor, fullColor, content.fillAmount);
@@ -78,7 +83,21 @@ namespace LabyrinthGame.UI
         
         
         #region Methods
+
+        private void UpdateValueText()
+        {
+            valueText.text = _currentValue.ToString("# ###") + " / " + _maxValue.ToString("# ###");
+            _fillAmount = Map(_currentValue, _minValue, _maxValue, 0, 1);
+        }
         
+        private void UpdateRegenText()
+        {
+            regenText.text = _regenValue.ToString("+0.#;-0.#;0");
+            regenText.color = _regenValue < 0f ? negativeRegen : positiveRegen; 
+        }
+        
+        
+
         private void HandleBar()
         {
             if (content.fillAmount != _fillAmount)
@@ -94,31 +113,49 @@ namespace LabyrinthGame.UI
         
         private void CurrentValueChanged(float newValue)
         {
-            Value = newValue;
+            _currentValue = newValue;
+            UpdateValueText();
+        }
+
+        private void MinMaxChanged(float minValue, float maxValue)
+        {
+            this._minValue = minValue;
+            this._maxValue = maxValue;
+            UpdateValueText();
+        }
+        private void RegenChanged(float regenPower)
+        {
+            _regenValue = regenPower;
+            UpdateRegenText();
         }
         
         private float Map(float value, float inMin, float inMax, float outMin, float outMax)
         {
             return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
         }
-        
+
         private void SubscribeForSource()
         {
-            if (_isSubscibed || (stat is null))
-                return;
-            stat.CurrentChanged += CurrentValueChanged;
-
-            _isSubscibed = true;
+            UnsubscribeFromSource();
+            _stat.CurrentChanged += CurrentValueChanged;
+            _stat.MinMaxChanged += MinMaxChanged;
+            if (_regenStat != null)
+                _regenStat.RegenChanged += RegenChanged;
+            _isSubscribed = true;
         }
-        
+
         private void UnsubscribeFromSource()
         {
-            _isSubscibed = false;
-            if (!_isSubscibed || (stat is null))
-                return;
-            stat.CurrentChanged -= CurrentValueChanged;
+            if (_isSubscribed && _stat !=null)
+            {
+                _stat.CurrentChanged -= CurrentValueChanged;
+                _stat.MinMaxChanged -= MinMaxChanged;
+            }
+            if (_regenStat != null)
+                _regenStat.RegenChanged -= RegenChanged;
+            _isSubscribed = false;
         }
-        
+
         #endregion
 
         #region IPlayerLoop
