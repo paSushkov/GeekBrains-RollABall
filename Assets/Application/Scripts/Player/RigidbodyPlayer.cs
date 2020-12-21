@@ -59,7 +59,6 @@ namespace LabyrinthGame.Player
             jumpRequested = false;
             if (jumpIsReady && Physics.Raycast(GameTransform.position, Vector3.down, 0.6f))
             {
-                Debug.Log("AAAA "+jumpStat.CurrentValue);
                 jumpIsReady = false;
                 ModelRigidbody.AddForce(Vector3.up * JumpPower, ForceMode.Impulse);
                 if (jumpStat!= null) 

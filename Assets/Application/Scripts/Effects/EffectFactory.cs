@@ -7,12 +7,21 @@ namespace LabyrinthGame.Effects
     public class EffectFactory
     {
         private EffectsSetLibrary _library;
-
+        private readonly float _permanentEffectsModifier = 0.25f;
         public EffectFactory()
         {
             _library = MasterManager.Instance.LinksHolder.EffectsSetLibrary;
         }
 
+        #region LifeCircle
+
+        public EffectFactory(float permanentEffectsModifier = 0.25f)
+        {
+            _permanentEffectsModifier = permanentEffectsModifier;
+        }
+
+        #endregion
+        
 
         #region Health amount effects
 
@@ -114,6 +123,8 @@ namespace LabyrinthGame.Effects
             var duration = 0f;
             if (durationType == EffectDuration.Timed)
                 duration = Random.Range(effectSet.MinDuration, effectSet.MaxDuration);
+            else
+                amount *= _permanentEffectsModifier;
                 
             if (effectSet.AffectRegen)
             {

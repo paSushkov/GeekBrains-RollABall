@@ -34,7 +34,7 @@ namespace LabyrinthGame.Collectibles
             this.reactLayers = reactLayers;
             SubscribeToTriggerListener();
             
-            RotationSpeed = new Vector3(Random.Range(-1f, 1f),Random.Range(-1f, 1f), Random.Range(-1f, 1f) ) * 360f;
+            RotationSpeed = Random.Range(0.1f,0.5f) * Vector3.forward* 360f;
             StartRotating(MasterManager.Instance.LinksHolder.RotationManager);            
         }
 

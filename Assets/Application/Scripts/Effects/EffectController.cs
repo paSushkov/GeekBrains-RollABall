@@ -1,75 +1,121 @@
 ﻿using System;
 using System.Collections.Generic;
+using LabyrinthGame.Managers;
+using LabyrinthGame.Stats;
 using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LabyrinthGame.Effects
 {
     public class EffectController : IPlayerLoop
     {
-        private readonly List<EffectBase> effects;
-        private readonly IEffectApplicable effectsHolder;
+        private readonly List<EffectBase> _effects;
+        private readonly IEffectApplicable _effectsHolder;
+        private readonly GameObject _iconPrefab;
+        private readonly Transform _effectsHud;
+        private readonly Dictionary<EffectBase, GameObject> _icons = new Dictionary<EffectBase, GameObject>();
 
         public EffectController(IEffectApplicable effectsHolder)
         {
-            effects = new List<EffectBase>();
-            this.effectsHolder = effectsHolder;
+            _effects = new List<EffectBase>();
+            _effectsHolder = effectsHolder;
+            _effectsHud = MasterManager.Instance.LinksHolder.EffectIconHolder.transform;
+            _iconPrefab = MasterManager.Instance.LinksHolder.EffectIconPrefab;
         }
 
         public void TickEffects(float deltaTime)
         {
-            for (var i = 0; i < effects.Count; i++)
+            for (var i = 0; i < _effects.Count; i++)
             {
-                effects[i].DoTick(deltaTime);
-                if (effects[i].DurationExpired)
-                    effects.RemoveAt(i);
+                _effects[i].DoTick(deltaTime);
+                if (_effects[i].DurationExpired)
+                {
+                    _effects[i].ExpireNow();
+                    _effects.RemoveAt(i);
+                }
             }
         }
 
         public void ApplyEffect(EffectBase effect)
         {
-            effects.Add(effect);
-            effect.OnApplyEffect(effectsHolder);
+            _effects.Add(effect);
+            effect.OnApplyEffect(_effectsHolder);
+            var newIcon = MasterManager.Instance.InstantiateObject(_iconPrefab, _effectsHud);
+            _icons.Add(effect, newIcon);
+            if (!newIcon.TryGetComponent(out Image iconImage))
+            {
+                iconImage = newIcon.AddComponent<Image>();
+            }
+
+            iconImage.sprite = effect.EffectIcon;
+
         }
 
         public void RemoveAllByType(Type type) 
         {
-            for (var i = 0; i < effects.Count; i++)
+            for (var i = 0; i < _effects.Count; i++)
             {
-                if (effects[i].GetType() == type)
+                if (_effects[i].GetType() == type)
                 {
-                    effects.RemoveAt(i);
+                    _effects[i].ExpireNow();
+                    if (_icons[_effects[i]])
+                        UnityEngine.Object.Destroy(_icons[_effects[i]]);
+                    _effects.RemoveAt(i);
                 }
             }
         }
 
         public void RemoveAllNonPermanent()
         {
-            for (var i = 0; i < effects.Count; i++)
+            for (var i = 0; i < _effects.Count; i++)
             {
-                if (effects[i].DurationType!=EffectDuration.Permanent)
-                    effects.RemoveAt(i);
+                if (_effects[i].DurationType != EffectDuration.Permanent)
+                {
+                    _effects[i].ExpireNow();
+                    if (_icons[_effects[i]])
+                        UnityEngine.Object.Destroy(_icons[_effects[i]]);
+                    _effects.RemoveAt(i);
+
+                }
+
             }
         }
         
-        public void RemoveAllByType(EffectType type = EffectType.Undefined, EffectDuration durationType = EffectDuration.Undefined)
+        public void RemoveAllByType(EffectType type = EffectType.Undefined, EffectDuration durationType = EffectDuration.Undefined, bool? regenerative = null)
         {
-            bool needToRemove;
-            for (var i = 0; i < effects.Count; i++)
+            bool needToRemove = true;
+            for (var i = 0; i < _effects.Count; i++)
             {
                 // check by type (positive / negative)
-                needToRemove = type == EffectType.Undefined || effects[i].EffectType == type;
+                needToRemove = needToRemove && (type == EffectType.Undefined || _effects[i].EffectType == type);
                 // check by type of duration
-                needToRemove = durationType == EffectDuration.Undefined || effects[i].DurationType == durationType;
+                needToRemove = needToRemove && (durationType == EffectDuration.Undefined || _effects[i].DurationType == durationType);
 
-                if (needToRemove)
-                   effects.RemoveAt(i);
+                if (regenerative.HasValue)
+                {
+                    needToRemove = needToRemove && (regenerative.Value == _effects[i] is RegenerativeStat);
+                }
+
+                if (!needToRemove) continue;
+                _effects[i].ExpireNow();
+                if (_icons[_effects[i]])
+                    UnityEngine.Object.Destroy(_icons[_effects[i]]);
+                _effects.RemoveAt(i);
+
             }
         }
 
         public void RemoveAllInstantly()
         {
-            effects.Clear();            
+            foreach (var effect in _effects)
+            {
+                if (_icons[effect])
+                    UnityEngine.Object.Destroy(_icons[effect]);
+
+                effect.ExpireNow();
+            }
+            _effects.Clear();            
         }
 
 

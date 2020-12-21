@@ -1,5 +1,4 @@
-﻿using LabyrinthGame.Managers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LabyrinthGame.Effects
 {
@@ -50,8 +49,11 @@ namespace LabyrinthGame.Effects
         {
             RemainingDuration -= deltaTime;
             OnTickEffect();
-            if (DurationExpired)
-                OnExpireEffect();
+        }
+
+        public void ExpireNow()
+        {
+            OnExpireEffect();
         }
 
         public virtual void OnApplyEffect(IEffectApplicable effectTarget)

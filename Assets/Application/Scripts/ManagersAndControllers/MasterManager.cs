@@ -30,13 +30,6 @@ namespace LabyrinthGame.Managers
         private GameObject _coinPrefab;
         private Material _silverMat;
         private Material _goldMat;
-        private GameObject uiCanvas;
-        private GameObject statsHud;
-        private GameObject statBar;
-        private GameObject winScreen;
-        private Transform activeCanvas;
-        private GameObject activeWinScreen;
-
 
         #region Properties
 
@@ -58,9 +51,8 @@ namespace LabyrinthGame.Managers
 
         #region Public methods
 
-        public void Initialize(IPlayerLoopProcessor playerLoopProcessor, Transform canvas, Transform levelRoot = null)
+        public void Initialize(IPlayerLoopProcessor playerLoopProcessor, Transform levelRoot = null)
         {
-            activeCanvas = canvas;
             mandatoryScore = 0;
 
             var labyrinth = GenerateLabyrinth(levelRoot);
@@ -84,7 +76,6 @@ namespace LabyrinthGame.Managers
             LinksHolder.UserInputManager.GetGameActiveController().Start();
 
             GenerateCollectibleItems(50, 50);
-            InstantiateUI();
         }
 
         public void Shutdown()
@@ -108,10 +99,23 @@ namespace LabyrinthGame.Managers
             _silverMat = Resources.Load("Materials/CoinsMaterials/silver_coin_color", typeof(Material)) as Material;
             _goldMat = Resources.Load("Materials/CoinsMaterials/gold_coin_color", typeof(Material)) as Material;
 
-            uiCanvas = Resources.Load("Prefabs/UI/HUDCanvas", typeof(GameObject)) as GameObject;
-            statsHud = Resources.Load("Prefabs/UI/StatsHUD", typeof(GameObject)) as GameObject;
-            statBar = Resources.Load("Prefabs/UI/PlayerStatBar", typeof(GameObject)) as GameObject;
-            winScreen = Resources.Load("Prefabs/UI/WinMessage", typeof(GameObject)) as GameObject;
+            var uiCanvasPrefab = Resources.Load("Prefabs/UI/HUDCanvas", typeof(GameObject)) as GameObject;
+            var statsHudPrefab = Resources.Load("Prefabs/UI/StatsHUD", typeof(GameObject)) as GameObject;
+            var statBarPrefab = Resources.Load("Prefabs/UI/PlayerStatBar", typeof(GameObject)) as GameObject;
+            var winScreenPrefab = Resources.Load("Prefabs/UI/WinMessage", typeof(GameObject)) as GameObject;
+            var effectHolderPrefab = Resources.Load("Prefabs/UI/EffectIconsHolder", typeof(GameObject)) as GameObject;
+            var effectIconPrefab = Resources.Load("Prefabs/UI/EffectIconView", typeof(GameObject)) as GameObject;
+            InstantiateUI();
+            
+            void InstantiateUI()
+            {
+                var canvas = InstantiateObject(uiCanvasPrefab);
+                var statBarHud = InstantiateObject(statsHudPrefab, canvas.transform);
+                var winScreen = InstantiateObject(winScreenPrefab, canvas.transform);
+                var effectHolder = InstantiateObject(effectHolderPrefab, canvas.transform);
+                LinksHolder.InitializeUILinks(winScreen, effectIconPrefab, effectHolder, statBarPrefab, statBarHud);
+            }
+            
         }
 
         private GameObject InstantiateCamera()
@@ -130,7 +134,7 @@ namespace LabyrinthGame.Managers
             return player;
         }
 
-        private GameObject InstantiateObject(GameObject obj = null, Transform parent = null)
+        public GameObject InstantiateObject(GameObject obj = null, Transform parent = null)
         {
             var newObject = obj != null ? Instantiate(obj, parent) : Instantiate(new GameObject(), parent);
             instantiatedObjects.Add(newObject);
@@ -177,7 +181,6 @@ namespace LabyrinthGame.Managers
             var effectFactory = LinksHolder.GameEffectFactory;
             var layerMask = new LayerMask();
             layerMask |= (1 << LinksHolder.ActivePlayer.GameTransform.gameObject.layer);
-            //layerMask |= (1 << LayerMask.NameToLayer("Default"));
             
             var root = InstantiateObject();
             root.name = "Collectibles";
@@ -242,23 +245,7 @@ namespace LabyrinthGame.Managers
             }
         }
 
-        private void InstantiateUI()
-        {
-            //var canvas = InstantiateObject(uiCanvas);
-            var canvas = activeCanvas;
-            var statsHud = InstantiateObject(this.statsHud, canvas);
-            var player = LinksHolder.ActivePlayer;
-            foreach (var statType in LinksHolder.ActivePlayer.StatHolder.ActiveStats)
-            {
-                var handlerObj = InstantiateObject(statBar, statsHud.transform);
-                
-                if (handlerObj.TryGetComponent(out BarHandler handler))
-                {
-                    handler.Initialize(statType, player);                    
-                }
-            }
-            activeWinScreen = InstantiateObject(winScreen, canvas);
-        }
+
 
         #endregion
     }

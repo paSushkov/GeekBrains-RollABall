@@ -28,6 +28,12 @@ namespace LabyrinthGame.Managers
         private Labyrinth _labyrinth;
         private ICollectibleFactory _collectibleFactory;
         private EffectFactory _effectFactory;
+        private GameObject _winWindow;
+        private GameObject _effectIconHolder;
+        private GameObject _effectIconPrefab;
+        private GameObject _statBarPrefab;
+        private GameObject _statBarHud;
+        
         
         #endregion
         
@@ -59,6 +65,16 @@ namespace LabyrinthGame.Managers
         #endregion
 
 
+        #region UI links
+        public GameObject WinWindow => _winWindow;
+        public GameObject EffectIconHolder => _effectIconHolder;
+        public GameObject EffectIconPrefab => _effectIconPrefab;
+        public GameObject StatBarPrefab => _statBarPrefab;
+        public GameObject StatBarHud => _statBarHud;
+
+        #endregion
+
+
         #region Public methods
 
         public void Initialize(IPlayerLoopProcessor playerLoopProcessor, Labyrinth labyrinth)
@@ -70,6 +86,15 @@ namespace LabyrinthGame.Managers
             RotationManager?.Initialize(playerLoopProcessor);
             InputTranslator?.Initialize(playerLoopProcessor);
             InputListener?.Initialize(InputTranslator);
+        }
+
+        public void InitializeUILinks(GameObject winWindow, GameObject effectIconPrefab, GameObject effectIconHolder, GameObject statBarPrefab, GameObject statBarHud)
+        {
+            _winWindow = winWindow;
+            _effectIconHolder = effectIconHolder;
+            _effectIconPrefab = effectIconPrefab;
+            _statBarPrefab = statBarPrefab;
+            _statBarHud = statBarHud;
         }
 
         public void Shutdown()
@@ -84,6 +109,7 @@ namespace LabyrinthGame.Managers
             InputTranslator?.Shutdown();
             InputListener?.Shutdown(inputManagerTranslator);
             UserInputManager?.Shutdown();
+            ShutdownUI();
         }
 
         public bool TryGetTransformOwner(Transform transform, out IHaveTransform owner)
@@ -121,5 +147,12 @@ namespace LabyrinthGame.Managers
         }
 
         #endregion
+        
+        private void ShutdownUI()
+        {
+            Destroy(WinWindow);
+            Destroy(EffectIconHolder);
+            Destroy(EffectIconPrefab);
+        }
     }
 }

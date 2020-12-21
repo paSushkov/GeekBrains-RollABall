@@ -23,7 +23,6 @@ namespace LabyrinthGame.UI
         [SerializeField] private Color negativeRegen = Color.red;
         [SerializeField] private Image icon;
         [SerializeField] bool changeColor;
-        private IPlayer _player = null;
         private Stat _stat;
         private RegenerativeStat _regenStat; 
         private float _fillAmount;
@@ -40,33 +39,30 @@ namespace LabyrinthGame.UI
         
         #region UnityMethods
         
-        public void Initialize(StatType statType, IPlayer player)
+        public void Initialize(Stat stat, StatType type)
         {
             if (_isSubscribed)
                 UnsubscribeFromSource();
-            
-            _player = player;
-            if (_player.StatHolder.TryGetStat(statType, out _stat))
+            _stat = stat;
+            icon.sprite = MasterManager.Instance.LinksHolder.StatsLibrary.GetStatIcon(type);
+            _maxValue = _stat.MaxValue;
+            _minValue = _stat.MinValue;
+            _currentValue = _stat.CurrentValue;
+            if (_stat is RegenerativeStat statRegen)
             {
-                icon.sprite = MasterManager.Instance.LinksHolder.StatsLibrary.GetStatIcon(statType);
-                _maxValue = _stat.MaxValue;
-                _minValue = _stat.MinValue;
-                _currentValue = _stat.CurrentValue;
-                if (_stat is RegenerativeStat stat)
-                {
-                    _regenStat = stat;
-                    _regenValue = _regenStat.CurrentRegenerationAmount;
-                    regenText.gameObject.SetActive(true);
-                }
-                SubscribeForSource();
-
-                UpdateValueText();
-                UpdateRegenText();
-        
-                if (changeColor)
-                    content.color = Color.Lerp(lowColor, fullColor, content.fillAmount);
+                _regenStat = statRegen;
+                _regenValue = _regenStat.CurrentRegenerationAmount;
+                regenText.gameObject.SetActive(true);
             }
-        
+
+            SubscribeForSource();
+
+            UpdateValueText();
+            UpdateRegenText();
+
+            if (changeColor)
+                content.color = Color.Lerp(lowColor, fullColor, content.fillAmount);
+
             _cameraTransform = MasterManager.Instance.LinksHolder.CameraController.GameTransform;
             _selfTransform = transform;
             PlayerLoopSubscriptionController.Initialize(this, MasterManager.Instance.LinksHolder.PlayerLoopProcessor);

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using LabyrinthGame.Managers;
 using LabyrinthGame.Tech.PlayerLoop;
+using LabyrinthGame.UI;
 using UnityEngine;
 
 namespace LabyrinthGame.Stats
@@ -12,6 +14,7 @@ namespace LabyrinthGame.Stats
 
         private readonly Dictionary<StatType, Stat> _stats = new Dictionary<StatType, Stat>();
         private readonly List<IPlayerLoop> _selfDynamicStats = new List<IPlayerLoop>();
+        private Dictionary<Stat, BarHandler> _statBars = new Dictionary<Stat, BarHandler>();
 
         #endregion
 
@@ -50,6 +53,18 @@ namespace LabyrinthGame.Stats
             {
                 _selfDynamicStats.Add(processor);
             }
+
+            var statBarObj = MasterManager.Instance.InstantiateObject(
+                MasterManager.Instance.LinksHolder.StatBarPrefab,
+                MasterManager.Instance.LinksHolder.StatBarHud.transform);
+
+
+            BarHandler handler;
+            if (!statBarObj.TryGetComponent(out handler))
+                handler = statBarObj.AddComponent<BarHandler>();
+            handler.Initialize(stat, type);                    
+            _statBars.Add(stat, handler);
+            
         }
         
         public void RemoveStat(StatType type)
@@ -61,7 +76,12 @@ namespace LabyrinthGame.Stats
                     _selfDynamicStats.Remove(dynamic);
                 }
 
+                if (_statBars[stat])
+                {
+                    Object.Destroy(_statBars[stat]);
+                }
                 _stats.Remove(type);
+                _statBars.Remove(stat);
             }
             else
             {
