@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Application.Scripts.Common.Interfaces;
 
-namespace LabirinthGame.Managers
+namespace LabyrinthGame.Managers
 {
     public class ObjectPool<T> : IObjectPool<T>
     {

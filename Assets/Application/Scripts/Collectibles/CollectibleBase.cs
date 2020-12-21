@@ -1,139 +1,146 @@
-﻿using Application.Scripts.Common.Interfaces;
-using LabirinthGame.Common;
-using LabirinthGame.Common.Interfaces;
+﻿using LabyrinthGame.Common;
+using LabyrinthGame.Common.Interfaces;
+using LabyrinthGame.Managers;
 using UnityEngine;
 
-namespace LabirinthGame.Collectibles
+namespace LabyrinthGame.Collectibles
 {
-    // TODO: Re-implement with interface
-    public class CollectibleBase : IRotatable
+    public class CollectibleBase : ICollectible, IRotatable
     {
         #region Private data
 
-        private bool isMandatory;
-        private LayerMask reactLayers = new LayerMask();
-        private TriggerListener triggerListener = null;
-        private Transform modelTransform = null;
-        private TriggerListener listener = null;
+        private LayerMask reactLayers;
         private bool isSubscribedToTrigger;
-        private IObjectPool<CollectibleBase> selfPool = null;
-        private IObjectPool<Transform> modelPool = null;
-        private IRotator masterRotator;
 
         #endregion
 
-        #region Properties
 
-        public bool Initialized { get; protected set; }
+
+        #region ICollectible implementation
+
+        public bool IsMandatory { get; private set; }
+
+        public void Initialize(bool isMandatory, Transform gameTransform, TriggerListener listener, LayerMask reactLayers)
+        {
+            if (isMandatory)
+            {
+                IsMandatory = isMandatory;
+                MasterManager.Instance.mandatoryScore++;
+            }
+
+            RotationalTransform = GameTransform = gameTransform;
+            RegisterAsTransformOwner();
+            MyTriggerListener = listener;
+            this.reactLayers = reactLayers;
+            SubscribeToTriggerListener();
+            
+            RotationSpeed = new Vector3(Random.Range(-1f, 1f),Random.Range(-1f, 1f), Random.Range(-1f, 1f) ) * 360f;
+            StartRotating(MasterManager.Instance.LinksHolder.RotationManager);            
+        }
+
+        public void Shutdown()
+        {
+            UnsubscribeFromTriggerListener();
+            StopRotating();
+            RotationalTransform = GameTransform = null;
+            MyTriggerListener = null;
+        }
+
+        public virtual void Collect(Collider collider)
+        {
+            if (IsMandatory)
+            {
+                MasterManager.Instance.mandatoryScore--;
+            }
+            DisposeTransform();
+            Shutdown();
+        }
+
+
+        #region IHaveTransform implementation
+
+        public Transform GameTransform { get; private set; }
+        public void RegisterAsTransformOwner()
+        {
+            MasterManager.Instance.LinksHolder.RegisterTransform(this, GameTransform);
+        }
+
+        public void DisposeTransform()
+        {
+            MasterManager.Instance.LinksHolder.DismissTransform(this);
+        }
+
+        #endregion
+
+
+        #region IListenTrigger imlementation
+        
+        public TriggerListener MyTriggerListener { get; private set; }
+
+        public void SubscribeToTriggerListener()
+        {
+            if (!isSubscribedToTrigger && MyTriggerListener != null)
+            {
+                MyTriggerListener.EnterTrigger += CheckLayerAndDoSomething;
+                isSubscribedToTrigger = true;
+            }
+        }
+
+        public void UnsubscribeFromTriggerListener()
+        {
+            if (isSubscribedToTrigger && MyTriggerListener != null)
+            {
+                MyTriggerListener.EnterTrigger -= CheckLayerAndDoSomething;
+            }
+
+            isSubscribedToTrigger = false;
+        }
+
 
         #endregion
         
         
+        #region IRotatable implementation
 
+        public IRotator RotationOperator { get; private set; }
+        public Transform RotationalTransform { get; private set; }
+
+        public Vector3 RotationSpeed { get; private set; }
+
+        public void StartRotating(IRotator rotator)
+        {
+            if (rotator != null)
+            {
+                RotationOperator = rotator;
+                rotator.RotateInFixedUpdate(this);
+            }
+        }
+
+        public void StopRotating()
+        {
+            if (RotationOperator != null)
+            {
+                RotationOperator.StopRotateInFixedUpdate(this);
+                RotationOperator = null;
+            }
+        }
+
+        #endregion
+        
+
+        #endregion
+
+        
         #region Private methods
 
         private void CheckLayerAndDoSomething(Collider other)
         {
             if (TriggerListener.IsInLayerMask(other.gameObject.layer, reactLayers))
             {
-                OnCollectEffect(other);
+                Collect(other);
             }
         }
 
-        public virtual void Initialize(
-            IObjectPool<CollectibleBase> selfPool,
-            IObjectPool<Transform> modelPool,
-            IRotator masterRotator,
-            bool isMandatory,
-            Transform modelTransform,
-            TriggerListener listener,
-            LayerMask reactLayers)
-        {
-            this.isMandatory = isMandatory;
-            this.modelTransform = modelTransform;
-            this.listener = listener;
-            this.reactLayers = reactLayers;
-            this.modelPool = modelPool;
-            this.selfPool = selfPool;
-            this.masterRotator = masterRotator;
-
-            var range = Random.Range(0f, 1f);
-            RotationSpeed = new Vector3(Random.Range(-range, range),Random.Range(-range, range), Random.Range(-range, range) ) * 360f;
-            
-            
-            // if (isMandatory)
-            //     GameManager.Instance.RegisterMandatoryCollectible(this);
-
-            
-            RotationalTransform = modelTransform;
-            SubscribeToTriggerListener();
-            Register(masterRotator);
-            Initialized = true;
-        }
-
-        protected virtual void Shutdown()
-        {
-            //(this as IRotatable).UnRegister(MasterRotator.Instance);
-            UnsubscribeFromTriggerListener();
-            // if (isMandatory)
-            //     GameManager.Instance.UnregisterMandatoryCollectible(this);
-            
-            modelTransform = null;
-            listener = null;
-            selfPool.ReturnObject(this);
-            modelPool.ReturnObject(modelTransform);
-            Initialized = false;
-        }
-
-        protected virtual void OnCollectEffect(Collider other)
-        {
-            Shutdown();
-        }
-
-        #endregion
-
-
-        #region IRotatable implementation
-
-        public Transform RotationalTransform { get; private set; }
-
-        public Vector3 RotationSpeed { get; private set; }
-
-        public void Register(IRotator rotator)
-        {
-            if (rotator!=null)
-                rotator.RotateInFixedUpdate(this);
-        }
-
-        public void Unregister(IRotator rotator)
-        {
-            if (rotator!=null)
-                rotator.StopRotateInFixedUpdate(this);
-        }
-
-        #endregion
-
-
-        #region Trigger listener subscribtion
-
-        private void SubscribeToTriggerListener()
-        {
-            if (!isSubscribedToTrigger && triggerListener != null)
-            {
-                triggerListener.EnterTrigger += CheckLayerAndDoSomething;
-                isSubscribedToTrigger = true;
-            }
-        }
-
-        private void UnsubscribeFromTriggerListener()
-        {
-            if (isSubscribedToTrigger && triggerListener != null)
-            {
-                triggerListener.EnterTrigger -= CheckLayerAndDoSomething;
-            }
-
-            isSubscribedToTrigger = false;
-        }
 
         #endregion
 

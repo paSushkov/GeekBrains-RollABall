@@ -1,9 +1,9 @@
-﻿using LabirinthGame.Common.Interfaces;
-using LabirinthGame.Stats;
-using LabirinthGame.Tech.PlayerLoop;
+﻿using LabyrinthGame.Common.Interfaces;
+using LabyrinthGame.Stats;
+using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabirinthGame.Player
+namespace LabyrinthGame.Player
 {
     public class RigidbodyPlayer : PlayerBase, IRigidbody
     {
@@ -23,9 +23,9 @@ namespace LabirinthGame.Player
 
         #region Private methods
 
-        public override void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, Stat speedStat)
+        public override void Initialize(Transform modelTransform, IPlayerLoopProcessor playerLoopProcessor, StatsDictionary stats)
         {
-            base.Initialize(modelTransform, playerLoopProcessor, speedStat);
+            base.Initialize(modelTransform, playerLoopProcessor, stats);
             if (modelTransform.TryGetComponent<Rigidbody>(out var cachedRigidBody))
                 ModelRigidbody = cachedRigidBody;
             else
@@ -35,16 +35,15 @@ namespace LabirinthGame.Player
                 ModelRigidbody = modelTransform.gameObject.AddComponent<Rigidbody>();
                 needToCleanUpRigidbody = true;
             }
-            //CachedRigidBody.maxAngularVelocity = 21f; // magic number. feels good
         }
 
         public override void Shutdown()
         {
-            if (needToCleanUpRigidbody &&
+            if (ModelRigidbody && needToCleanUpRigidbody &&
                 GameTransform.TryGetComponent<Rigidbody>(out var currentBody) &&
                 currentBody == ModelRigidbody)
             {
-                Object.Destroy(ModelRigidbody);
+                Object.Destroy(currentBody);
             }
 
             base.Shutdown();
@@ -75,7 +74,13 @@ namespace LabirinthGame.Player
 
         public override void Move(Vector3 direction, float speed)
         {
-            ModelRigidbody.AddTorque(direction * speed, ForceMode.Acceleration);
+            ModelRigidbody.AddForce(direction * speed, ForceMode.Force);
+            var currentVelocity = ModelRigidbody.velocity;
+            var sqrMagnitude = currentVelocity.sqrMagnitude;
+            if (sqrMagnitude > MaxMoveSpeedSqr)
+            {
+                ModelRigidbody.velocity = Vector3.ClampMagnitude(currentVelocity, MaxMoveSpeed);
+            }
         }
 
         #endregion

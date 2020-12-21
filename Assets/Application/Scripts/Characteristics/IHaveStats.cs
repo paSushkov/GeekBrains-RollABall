@@ -1,4 +1,4 @@
-﻿namespace LabirinthGame.Stats
+﻿namespace LabyrinthGame.Stats
 {
     public interface IHaveStats
     {

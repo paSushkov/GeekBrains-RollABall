@@ -1,4 +1,7 @@
-﻿namespace LabirinthGame.Effects
+﻿using LabyrinthGame.Managers;
+using UnityEngine;
+
+namespace LabyrinthGame.Effects
 {
     public abstract class EffectBase
     {
@@ -7,7 +10,8 @@
         protected readonly float initialDuration;
         protected readonly EffectDuration durationType;
         protected readonly EffectType effectType;
-        protected readonly IEffectApplicable target;
+        protected IEffectApplicable target;
+        protected Sprite _effectIcon;
 
         #endregion
 
@@ -18,6 +22,7 @@
         public float InitialDuration => initialDuration;
         public EffectDuration DurationType => durationType;
         public EffectType EffectType => effectType;
+        public Sprite EffectIcon => _effectIcon;
 
         public bool DurationExpired
         {
@@ -33,12 +38,12 @@
         #endregion
 
 
-        public EffectBase(IEffectApplicable target, float duration, EffectDuration durationType, EffectType effectType)
+        public EffectBase(float duration, EffectDuration durationType, EffectType effectType, Sprite effectIcon)
         {
-            this.target = target;
             RemainingDuration = initialDuration = duration;
             this.durationType = durationType;
             this.effectType = effectType;
+            _effectIcon = effectIcon;
         }
 
         public void DoTick(float deltaTime)
@@ -49,7 +54,11 @@
                 OnExpireEffect();
         }
 
-        public abstract void OnApplyEffect();
+        public virtual void OnApplyEffect(IEffectApplicable effectTarget)
+        {
+            target = effectTarget;
+        }
+
         protected abstract void OnTickEffect();
         protected abstract void OnExpireEffect();
     }

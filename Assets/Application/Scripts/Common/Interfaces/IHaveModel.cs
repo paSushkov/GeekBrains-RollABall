@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
-namespace Application.Scripts.Common.Interfaces
+namespace LabyrinthGame.Common.Interfaces
 {
     public interface IHaveTransform
     {
         Transform GameTransform { get; }
+
+        void RegisterAsTransformOwner();
+        void DisposeTransform();
+
     }
 }

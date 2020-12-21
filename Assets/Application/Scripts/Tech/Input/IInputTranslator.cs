@@ -1,7 +1,7 @@
-﻿using LabirinthGame.Common.Handlers;
-using LabirinthGame.Tech.PlayerLoop;
+﻿using LabyrinthGame.Common.Handlers;
+using LabyrinthGame.Tech.PlayerLoop;
 
-namespace LabirinthGame.Tech.Input
+namespace LabyrinthGame.Tech.Input
 {
     public interface IInputTranslator
     {

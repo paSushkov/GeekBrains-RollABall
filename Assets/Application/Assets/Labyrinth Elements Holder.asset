@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffb20f6a97eace44b053f0dfc1ab8f5, type: 3}
+  m_Name: Labyrinth Elements Holder
+  m_EditorClassIdentifier: 
+  walls:
+  - {fileID: 64149462203947147, guid: 4577f655133e77249b48c0dc819b348e, type: 3}
+  - {fileID: 4692750864674210132, guid: 492fdf7d82be04449bebaf8d6120aed6, type: 3}
+  - {fileID: 131926001460186873, guid: 5370071478aa1c24eba7e2dd1b08b461, type: 3}
+  - {fileID: 4882422730882168297, guid: 991e0ade65010b042999736b7ffe55b7, type: 3}
+  cells:
+  - {fileID: 7393816356180299986, guid: d148dd5e0ede19048aa4e91bce598957, type: 3}
+  - {fileID: 3969334011240009714, guid: a0ea3a418d220ab429b05c3b2e67c085, type: 3}
+  - {fileID: 353565263583885468, guid: a7b6fc512054dfa49ab43aced6159ecb, type: 3}
+  - {fileID: 7109832151918637129, guid: d56547ddb74a4174c9c19931400f0bab, type: 3}

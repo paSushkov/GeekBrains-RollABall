@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using LabirinthGame.Common;
-using LabirinthGame.Common.Handlers;
-using LabirinthGame.Effects;
+using LabyrinthGame.Common;
+using LabyrinthGame.Common.Handlers;
+using LabyrinthGame.Effects;
 
 
-namespace LabirinthGame.Stats
+namespace LabyrinthGame.Stats
 {
     public class Stat
     {
@@ -48,9 +48,9 @@ namespace LabirinthGame.Stats
 
         public Stat(MinMaxCurrent minMaxCurrent)
         {
-            minValue = minMaxCurrent.minValue;
-            SetMaxValue(minMaxCurrent.maxValue);
-            DefaultValue = CurrentValue = minMaxCurrent.currentValue;
+            minValue = minMaxCurrent.MinValue;
+            SetMaxValue(minMaxCurrent.MaxValue);
+            DefaultValue = CurrentValue = minMaxCurrent.CurrentValue;
         }
         
         public Stat(float minValue, float maxValue, float current)

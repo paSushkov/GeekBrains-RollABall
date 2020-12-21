@@ -1,14 +1,15 @@
-﻿using LabirinthGame.Managers;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace LabirinthGame.Common.Interfaces
+namespace LabyrinthGame.Common.Interfaces
 {
     public interface IRotatable
     {
+
         Transform RotationalTransform { get; }
         Vector3 RotationSpeed { get; }
+        IRotator RotationOperator { get;}
 
-        void Register(IRotator rotator);
-        void Unregister(IRotator rotator);
+        void StartRotating(IRotator rotator);
+        void StopRotating();
     }
 }

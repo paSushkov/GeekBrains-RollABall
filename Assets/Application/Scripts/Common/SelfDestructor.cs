@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace LabirinthGame.Common
+namespace LabyrinthGame.Common
 {
     public sealed  class SelfDestructor : MonoBehaviour
     {

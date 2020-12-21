@@ -1,21 +1,22 @@
-﻿using LabirinthGame.Stats;
+﻿using LabyrinthGame.Stats;
+using UnityEngine;
 
-namespace LabirinthGame.Effects
+namespace LabyrinthGame.Effects
 {
     public class StatValueChangingEffect : StatChangingEffect
     {
         private ExtraValue extraValue;
 
-        public StatValueChangingEffect(IEffectApplicable target, StatType type, float amount, float duration,
-            EffectDuration durationType, EffectType effectType) : base(target, type, amount, duration, durationType,
-            effectType)
+        public StatValueChangingEffect(StatType affectStatType, float amount, float duration,
+            EffectDuration durationType, EffectType effectType, Sprite icon) : base(affectStatType, amount, duration, durationType,
+            effectType, icon)
         {
             extraValue = new ExtraValue(amount);
         }
 
-        public override void OnApplyEffect()
+        public override void OnApplyEffect(IEffectApplicable effectTarget)
         {
-            base.OnApplyEffect();
+            base.OnApplyEffect(effectTarget);
             stat?.AddExtraValue(ref extraValue);
         }
 

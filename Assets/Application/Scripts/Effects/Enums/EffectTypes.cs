@@ -1,4 +1,4 @@
-﻿namespace LabirinthGame.Effects
+﻿namespace LabyrinthGame.Effects
 {
     public enum EffectType
     {

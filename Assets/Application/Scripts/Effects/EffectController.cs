@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using LabirinthGame.Tech.PlayerLoop;
+using LabyrinthGame.Tech.PlayerLoop;
+using UnityEngine;
 
-namespace LabirinthGame.Effects
+namespace LabyrinthGame.Effects
 {
     public class EffectController : IPlayerLoop
     {
@@ -28,7 +29,7 @@ namespace LabirinthGame.Effects
         public void ApplyEffect(EffectBase effect)
         {
             effects.Add(effect);
-            effect.OnApplyEffect();
+            effect.OnApplyEffect(effectsHolder);
         }
 
         public void RemoveAllByType(Type type) 

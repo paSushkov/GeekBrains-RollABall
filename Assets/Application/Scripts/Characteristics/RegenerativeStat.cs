@@ -1,8 +1,8 @@
-﻿using LabirinthGame.Common;
-using LabirinthGame.Common.Handlers;
-using LabirinthGame.Tech.PlayerLoop;
+﻿using LabyrinthGame.Common;
+using LabyrinthGame.Common.Handlers;
+using LabyrinthGame.Tech.PlayerLoop;
 
-namespace LabirinthGame.Stats
+namespace LabyrinthGame.Stats
 {
     public sealed class RegenerativeStat : Stat, IPlayerLoop
     {

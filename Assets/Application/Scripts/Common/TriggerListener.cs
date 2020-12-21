@@ -1,8 +1,8 @@
-﻿using LabirinthGame.Common.Handlers;
+﻿using LabyrinthGame.Common.Handlers;
 using UnityEngine;
 
 
-namespace LabirinthGame.Common
+namespace LabyrinthGame.Common
 {
     public sealed class TriggerListener : MonoBehaviour
     {

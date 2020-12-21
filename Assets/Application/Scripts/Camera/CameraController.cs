@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using LabirinthGame.Common.Handlers;
-using LabirinthGame.Common.Interfaces;
-using LabirinthGame.Tech.PlayerLoop;
+using LabyrinthGame.Common.Handlers;
+using LabyrinthGame.Common.Interfaces;
+using LabyrinthGame.Managers;
+using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabirinthGame.Camera
+namespace LabyrinthGame.Camera
 {
     public class CameraController : ICameraController
     {
@@ -13,7 +14,7 @@ namespace LabirinthGame.Camera
         #region Public data
 
         public float moveSpeed = 0.5f;
-        public float maxDistance = 2f;
+        public float maxDistance = 0.5f;
         public Vector3 _offset = new Vector3(0, 20f, -5f);
 
         #endregion
@@ -30,10 +31,6 @@ namespace LabirinthGame.Camera
         public bool IsTracking { get; private set; }
 
         #endregion
-
-
-
-
         
         #region Private methods
 
@@ -55,6 +52,7 @@ namespace LabirinthGame.Camera
             {
                 GameTransform.position = _desiredPosition;
             }
+            LookAt(Target.Position);
         }
 
         private void GetDesiredPosition(Vector3 position)
@@ -71,7 +69,7 @@ namespace LabirinthGame.Camera
 
         public void MoveTo(Vector3 position)
         {
-            throw new System.NotImplementedException();
+            GameTransform.position = position;
         }
 
         public void MoveTowards(Vector3 position, float speed)
@@ -94,12 +92,14 @@ namespace LabirinthGame.Camera
             PlayerLoopSubscriptionController.Initialize(this, playerLoopProcessor);
             PlayerLoopSubscriptionController.SubscribeToLoop();
             GameTransform = cameraTransform;
+            RegisterAsTransformOwner();
         }
 
         public void Shutdown()
         {
             PlayerLoopSubscriptionController.Shutdown();
             StopTracking();
+            DisposeTransform();
             GameTransform = null;
             Target = null;
         }
@@ -107,13 +107,26 @@ namespace LabirinthGame.Camera
         public void LookAt(Vector3 point)
         {
             GameTransform.LookAt(point, Vector3.up);
+            var angles = GameTransform.rotation.eulerAngles;
+            angles.y = 0;
+            angles.z = 0;
+            GameTransform.rotation = Quaternion.Euler(angles);
         }
 
         
         #region IHaveTransform implementation
 
         public Transform GameTransform { get; private set; }
+        
+        public void RegisterAsTransformOwner()
+        {
+            MasterManager.Instance.LinksHolder.RegisterTransform(this, GameTransform);
+        }
 
+        public void DisposeTransform()
+        {
+            MasterManager.Instance.LinksHolder.DismissTransform(this);
+        }
 
         #endregion
         

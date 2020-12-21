@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 
@@ -52,7 +50,7 @@ namespace LabyrinthGenerator
             roadParrent.transform.SetParent(_parent);
 
             _cells = new Cell[_labyrinthSizeX, _labyrinthSizeZ];
-            Stack<Cell> cellsStack = new Stack<Cell>();
+            var cellsStack = new Stack<Cell>();
 
             var currentSell = new Cell(_labyrinthSizeX / 2, _labyrinthSizeZ / 2, _parent.position, true);
             var isGridSet = false;
@@ -94,8 +92,8 @@ namespace LabyrinthGenerator
 
                     var cellObj = Instantiate(_cellPrefub, newCell.Position, Quaternion.identity) as GameObject;
                     // var cellObj = PrefabUtility.InstantiatePrefab(_cellPrefub, SceneManager.GetActiveScene()) as GameObject;
-                    // cellObj.transform.SetPositionAndRotation(newCell.Position, Quaternion.identity);
-                    // cellObj.transform.Rotate(Vector3.up, Random.Range(0, 3)*90f);                    
+                    cellObj.transform.SetPositionAndRotation(newCell.Position, Quaternion.identity);
+                    cellObj.transform.Rotate(Vector3.up, Random.Range(0, 4)*90f);                    
                     cellObj.transform.SetParent(roadParrent.transform);
 
                     if (!isGridSet)
@@ -128,9 +126,9 @@ namespace LabyrinthGenerator
                     {
                         var position = SetNewPositionForWall(x, z);
                         var wall = Instantiate(_wallPrefub, position, Quaternion.identity);
-                        //var wall = PrefabUtility.InstantiatePrefab (_wallPrefub, SceneManager.GetActiveScene()) as GameObject;
-                        // wall.transform.SetPositionAndRotation(position, Quaternion.identity);
-                        // wall.transform.Rotate(Vector3.up, Random.Range(0, 3)*90f);
+                        // var wall = PrefabUtility.InstantiatePrefab (_wallPrefub, SceneManager.GetActiveScene()) as GameObject;
+                        wall.transform.SetPositionAndRotation(position, Quaternion.identity);
+                        wall.transform.Rotate(Vector3.up, Random.Range(0, 4)*90f);
                         wall.transform.SetParent(wallsParrent.transform);
 
                         _cells[x, z].Position = position;
@@ -243,7 +241,7 @@ namespace LabyrinthGenerator
         private bool CheckCell(int rowX, int columnZ)
         {
             if (CheckCellInArray(rowX, columnZ))
-                return _cells[rowX, columnZ].IsBusy == true ? false : true;
+                return !_cells[rowX, columnZ].IsBusy;
             else
                 return false;
         }

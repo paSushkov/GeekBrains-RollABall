@@ -1,9 +1,9 @@
 ﻿using Application.Scripts.Common.Interfaces;
-using LabirinthGame.Common.Interfaces;
-using LabirinthGame.Tech.PlayerLoop;
+using LabyrinthGame.Common.Interfaces;
+using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabirinthGame.Camera
+namespace LabyrinthGame.Camera
 {
     public interface ICameraController : IMovable, ITracker, IPlayerLoop, IHaveTransform
     {

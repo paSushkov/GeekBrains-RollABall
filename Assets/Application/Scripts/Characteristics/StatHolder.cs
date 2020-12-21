@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using LabirinthGame.Tech.PlayerLoop;
+using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabirinthGame.Stats
+namespace LabyrinthGame.Stats
 {
     // TODO: Re-implement with interface
     public class StatHolder : IPlayerLoop
@@ -13,7 +13,6 @@ namespace LabirinthGame.Stats
         private readonly List<IPlayerLoop> _selfDynamicStats = new List<IPlayerLoop>();
 
         #endregion
-
         
         
         #region Stat management
@@ -84,9 +83,7 @@ namespace LabirinthGame.Stats
         public void ProcessFixedUpdate(float fixedDeltaTime)
         {
             foreach (var processor in _selfDynamicStats)
-            {
                 processor.ProcessFixedUpdate(fixedDeltaTime);
-            }
         }
 
         public void ProcessLateUpdate(float fixedDeltaTime)

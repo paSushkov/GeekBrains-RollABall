@@ -18,3 +18,6 @@ MonoBehaviour:
   inputManagerListener: {fileID: 11400000, guid: 08d53ae33bd7655449e90c8d95a60507,
     type: 2}
   userInputManager: {fileID: 11400000, guid: 19c241a907605e24d90f0d7620c70af2, type: 2}
+  elementsHolder: {fileID: 11400000, guid: e8efeb63a2e9046419d321e9e05def2b, type: 2}
+  effectsSetLibrary: {fileID: 11400000, guid: c31aa959a9db6864bb681214129d9e32, type: 2}
+  statsAsset: {fileID: 11400000, guid: ff064d3feacd5604aa61088bdf86a53b, type: 2}

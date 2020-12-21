@@ -1,6 +1,6 @@
-﻿using LabirinthGame.Tech.PlayerLoop;
+﻿using LabyrinthGame.Tech.PlayerLoop;
 
-namespace LabirinthGame.Common.Interfaces
+namespace LabyrinthGame.Common.Interfaces
 {
     public interface IRotator : IPlayerLoop
     {

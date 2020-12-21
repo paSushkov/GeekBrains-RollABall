@@ -1,15 +1,23 @@
-﻿namespace LabirinthGame.Common
+﻿using System;
+using UnityEngine;
+
+namespace LabyrinthGame.Common
 {
+    [Serializable]
     public struct MinMaxCurrent
     {
         #region Fields
 
-        public readonly float minValue;
-        public readonly float maxValue;
-        public readonly float currentValue;
+        [SerializeField] private float minValue;
+        [SerializeField] private float maxValue;
+        [SerializeField] private float currentValue;
 
         #endregion
 
+        public float MinValue => minValue;
+        public float MaxValue => maxValue;
+        public float CurrentValue => currentValue;
+        
 
         #region ClassLifeCycles
 
@@ -22,5 +30,7 @@
         }
 
         #endregion
+
+
     }
 }

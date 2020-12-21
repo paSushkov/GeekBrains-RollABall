@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c6eb86ac4f4ca9822c6dcef11e73e6, type: 3}
+  m_Name: Effects Set Library
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  effects:
+  - gameEffectType: 1
+    gameStatType: 1
+    affectRegen: 0
+    minAmount: 10
+    maxAmount: 50
+    minDuration: 5
+    maxDuration: 15
+    icon: {fileID: 21300000, guid: 317dd6ebe5c13684a95e8fe6aeb21935, type: 3}
+  - gameEffectType: 2
+    gameStatType: 1
+    affectRegen: 0
+    minAmount: 10
+    maxAmount: 50
+    minDuration: 5
+    maxDuration: 15
+    icon: {fileID: 21300000, guid: aee9a19a75dd71f47b9eee9f5b4a1e99, type: 3}
+  - gameEffectType: 1
+    gameStatType: 1
+    affectRegen: 1
+    minAmount: 3
+    maxAmount: 6
+    minDuration: 5
+    maxDuration: 10
+    icon: {fileID: 21300000, guid: cfe6413ab67772a45b855cdbb593d210, type: 3}
+  - gameEffectType: 2
+    gameStatType: 1
+    affectRegen: 1
+    minAmount: 3
+    maxAmount: 6
+    minDuration: 5
+    maxDuration: 10
+    icon: {fileID: 21300000, guid: 97d55c48fda9bc24985ee812ffa19fa2, type: 3}
+  - gameEffectType: 1
+    gameStatType: 3
+    affectRegen: 0
+    minAmount: 5
+    maxAmount: 10
+    minDuration: 5
+    maxDuration: 15
+    icon: {fileID: 21300000, guid: 073a60c7b151d2e49a575f3ba7e305ac, type: 3}
+  - gameEffectType: 2
+    gameStatType: 3
+    affectRegen: 0
+    minAmount: 5
+    maxAmount: 10
+    minDuration: 5
+    maxDuration: 15
+    icon: {fileID: 21300000, guid: d5253c3d375658545b41b4ef7726835e, type: 3}
+  goldCoin: {fileID: 0}
+  silverCoin: {fileID: 0}

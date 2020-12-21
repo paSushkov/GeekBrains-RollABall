@@ -1,4 +1,4 @@
-﻿namespace LabirinthGame.Common.Interfaces
+﻿namespace LabyrinthGame.Common.Interfaces
 {
     public interface ITracker
     {

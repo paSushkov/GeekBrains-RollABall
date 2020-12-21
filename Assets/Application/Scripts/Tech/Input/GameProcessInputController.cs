@@ -1,9 +1,9 @@
-﻿using LabirinthGame.Managers;
-using LabirinthGame.Player;
-using LabirinthGame.Tech.PlayerLoop;
+﻿using LabyrinthGame.Managers;
+using LabyrinthGame.Player;
+using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabirinthGame.Tech.Input
+namespace LabyrinthGame.Tech.Input
 {
     public class GameProcessInputController : IInputController, IPlayerLoop
     {
@@ -26,8 +26,8 @@ namespace LabirinthGame.Tech.Input
 
         public void Initialize()
         {
-            _inputListener = MasterManager.Instance.LinksManager.InputListener;
-            _playerLoopProcessor = MasterManager.Instance.LinksManager.PlayerLoopProcessor;
+            _inputListener = MasterManager.Instance.LinksHolder.InputListener;
+            _playerLoopProcessor = MasterManager.Instance.LinksHolder.PlayerLoopProcessor;
             PlayerLoopSubscriptionController.Initialize(this, _playerLoopProcessor);
         }
 
@@ -40,7 +40,7 @@ namespace LabirinthGame.Tech.Input
 
         public void Start()
         {
-            playerController = MasterManager.Instance.LinksManager.ActivePlayer;
+            playerController = MasterManager.Instance.LinksHolder.ActivePlayer;
             PlayerLoopSubscriptionController.SubscribeToLoop();
         }
 
@@ -84,7 +84,7 @@ namespace LabirinthGame.Tech.Input
 
         private Vector3 InputToDirection()
         {
-            var direction = new Vector3(_inputListener.Vertical, 0, -_inputListener.Horizontal);
+            var direction = new Vector3(_inputListener.Horizontal, 0, _inputListener.Vertical);
             return Vector3.ClampMagnitude(direction, 1f);
         }
 

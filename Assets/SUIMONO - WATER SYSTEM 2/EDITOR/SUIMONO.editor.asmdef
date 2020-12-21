@@ -1,0 +1,17 @@
+{
+    "name": "SUIMONO.editor",
+    "references": [
+        "GUID:99e7e022c12aff24986c9a7915dba025"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

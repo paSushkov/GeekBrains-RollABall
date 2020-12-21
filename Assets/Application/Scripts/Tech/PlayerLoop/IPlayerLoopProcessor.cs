@@ -1,4 +1,4 @@
-﻿namespace LabirinthGame.Tech.PlayerLoop
+﻿namespace LabyrinthGame.Tech.PlayerLoop
 {
     public interface IPlayerLoopProcessor
     {

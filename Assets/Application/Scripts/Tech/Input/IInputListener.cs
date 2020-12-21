@@ -1,4 +1,4 @@
-﻿namespace LabirinthGame.Tech.Input
+﻿namespace LabyrinthGame.Tech.Input
 {
     public interface IInputListener
     {

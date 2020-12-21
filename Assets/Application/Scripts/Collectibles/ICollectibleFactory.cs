@@ -1,8 +1,12 @@
-﻿namespace LabirinthGame.Collectibles
+﻿using LabyrinthGame.Effects;
+
+namespace LabyrinthGame.Collectibles
 {
-    public class ICollectibleFactory
+    public interface ICollectibleFactory
     {
-        CollectibleBase GetRandomCollectible;
-        CollectibleBase GetMandatoryCollectible;
+        CollectibleBase GetRandomCollectible();
+        CollectibleBase GetSimpleCollectible();
+        CollectibleBase GetEffectCollectible(EffectBase effect = null, EffectDuration duration = EffectDuration.Undefined);
+
     }
 }

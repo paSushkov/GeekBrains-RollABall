@@ -1,6 +1,6 @@
-﻿using LabirinthGame.Common.Handlers;
+﻿using LabyrinthGame.Common.Handlers;
 
-namespace LabirinthGame.Tech.Input
+namespace LabyrinthGame.Tech.Input
 {
     public class AxisInput
     {

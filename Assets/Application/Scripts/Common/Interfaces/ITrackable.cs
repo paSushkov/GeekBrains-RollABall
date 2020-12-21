@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LabirinthGame.Common.Interfaces
+namespace LabyrinthGame.Common.Interfaces
 {
     public delegate void PositionChangeProcessor(Vector3 newPosition);
     public interface ITrackable

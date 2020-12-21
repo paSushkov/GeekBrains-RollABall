@@ -1,21 +1,22 @@
-﻿using LabirinthGame.Stats;
+﻿using LabyrinthGame.Stats;
+using UnityEngine;
 
-namespace LabirinthGame.Effects
+namespace LabyrinthGame.Effects
 {
     public class StatRegenerationChangingEffect : StatChangingEffect
     {
-        public StatRegenerationChangingEffect(IEffectApplicable target, StatType type, float amount,
-            float duration, EffectDuration durationType, EffectType effectType) : base(target, type, amount, duration,
-            durationType, effectType)
+        public StatRegenerationChangingEffect(StatType affectStatType, float amount,
+            float duration, EffectDuration durationType, EffectType effectType, Sprite icon) : base(affectStatType, amount, duration,
+            durationType, effectType, icon)
         {
         }
 
-        public override void OnApplyEffect()
+        public override void OnApplyEffect(IEffectApplicable effectTarget)
         {
-            base.OnApplyEffect();
+            base.OnApplyEffect(effectTarget);
             if (stat != null && stat is RegenerativeStat regenerative)
             {
-                regenerative.CurrentRegenerationAmount += _amount;
+                regenerative.CurrentRegenerationAmount += Amount;
             }
         }
 
@@ -27,9 +28,8 @@ namespace LabirinthGame.Effects
         {
             if (stat != null && stat is RegenerativeStat regenerative)
             {
-                regenerative.CurrentRegenerationAmount -= _amount;
+                regenerative.CurrentRegenerationAmount -= Amount;
             }
-
         }
     }
 }

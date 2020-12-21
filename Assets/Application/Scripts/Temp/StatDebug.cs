@@ -1,10 +1,10 @@
 ﻿using System;
-using LabirinthGame.Player;
-using LabirinthGame.Stats;
+using LabyrinthGame.Player;
+using LabyrinthGame.Stats;
 using TMPro;
 using UnityEngine;
 
-namespace LabirinthGame.Temp
+namespace LabyrinthGame.Temp
 {
     public class StatDebug : MonoBehaviour
     {

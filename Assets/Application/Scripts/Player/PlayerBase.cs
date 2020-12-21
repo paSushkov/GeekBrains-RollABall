@@ -1,16 +1,17 @@
-﻿using LabirinthGame.Common.Interfaces;
-using LabirinthGame.Effects;
-using LabirinthGame.Stats;
-using LabirinthGame.Tech.PlayerLoop;
+﻿using LabyrinthGame.Common.Interfaces;
+using LabyrinthGame.Effects;
+using LabyrinthGame.Managers;
+using LabyrinthGame.Stats;
+using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabirinthGame.Player
+namespace LabyrinthGame.Player
 {
     public abstract class PlayerBase : IPlayer
     {
         #region Private data
 
-        protected EffectController effectController;
+        private EffectController effectController;
         private bool isSubscribedForInput;
         private bool isSubscribedForSpeedChange;
 
@@ -21,12 +22,21 @@ namespace LabirinthGame.Player
 
         public Vector3 MoveDirection { get; set; }
         
-        public virtual void Initialize(Transform gameTransform, IPlayerLoopProcessor playerLoopProcessor, Stat speedStat)
+        public virtual void Initialize(Transform gameTransform, IPlayerLoopProcessor playerLoopProcessor, StatsDictionary stats)
         {
             GameTransform = gameTransform;
-            StatHolder.AddStat(StatType.Speed, speedStat);
-            MoveSpeed = speedStat.CurrentValue;
-            SubscribeForSpeedChange();
+            RegisterAsTransformOwner();
+            MaxMoveSpeed = 50f;
+            InitializeStats(stats);
+            
+            if (StatHolder.TryGetStat(StatType.Speed, out var speed))
+            {
+                MoveSpeed = speed.CurrentValue;
+                MaxMoveSpeed = speed.MaxValue;
+                MaxMoveSpeedSqr = MaxMoveSpeed * MaxMoveSpeed;
+                SubscribeForSpeedChange();
+            }
+
             PlayerLoopSubscriptionController.Initialize(this, playerLoopProcessor);
             PlayerLoopSubscriptionController.SubscribeToLoop();
             if (effectController == null)
@@ -35,8 +45,9 @@ namespace LabirinthGame.Player
 
         public virtual void Shutdown()
         {
+            DisposeTransform();
             GameTransform = null;
-            UnsubscribeFromSpeedChange();
+            UnsubscribeCurrentSpeedChange();
             PlayerLoopSubscriptionController.Shutdown();
             OnPositionChange = null;
             effectController.RemoveAllInstantly();
@@ -46,6 +57,8 @@ namespace LabirinthGame.Player
         #region IMovable implementation
 
         public float MoveSpeed { get; private set; }
+        public float MaxMoveSpeed { get; private set; }
+        public float MaxMoveSpeedSqr { get; private set; }
 
         public void MoveTo(Vector3 position)
         {
@@ -101,7 +114,7 @@ namespace LabirinthGame.Player
                 OnPositionChange?.Invoke(GameTransform.position);
                 GameTransform.hasChanged = false;
             }
-
+            effectController.ProcessFixedUpdate(fixedDeltaTime);
             StatHolder.ProcessFixedUpdate(fixedDeltaTime);
 
         }
@@ -116,6 +129,15 @@ namespace LabirinthGame.Player
         #region IHaveTransform implementation
 
         public Transform GameTransform { get; private set; }
+        public void RegisterAsTransformOwner()
+        {
+            MasterManager.Instance.LinksHolder.RegisterTransform(this, GameTransform);
+        }
+
+        public void DisposeTransform()
+        {
+            MasterManager.Instance.LinksHolder.DismissTransform(this);
+        }
 
         #endregion
         
@@ -128,24 +150,44 @@ namespace LabirinthGame.Player
         {
             MoveSpeed = newSpeed;
         }
+        
+        protected void ProcessMaxSpeedChange(float newMin, float newMax)
+        {
+            MaxMoveSpeed = newMax;
+            MaxMoveSpeedSqr = newMax*newMax;
+        }
 
         private void SubscribeForSpeedChange()
         {
             if (!isSubscribedForSpeedChange && StatHolder.TryGetStat(StatType.Speed, out var speed))
             {
+                speed.MinMaxChanged += ProcessMaxSpeedChange;
                 speed.CurrentChanged += ProcessSpeedChange;
                 isSubscribedForSpeedChange = true;
             }
         }
 
-        private void UnsubscribeFromSpeedChange()
+        private void UnsubscribeCurrentSpeedChange()
         {
             if (isSubscribedForSpeedChange && StatHolder.TryGetStat(StatType.Speed, out var speed))
             {
+                speed.MinMaxChanged -= ProcessMaxSpeedChange;
                 speed.CurrentChanged -= ProcessSpeedChange;
             }
 
             isSubscribedForSpeedChange = false;
+        }
+
+        private void InitializeStats(StatsDictionary stats)
+        {
+            foreach (var statSet in stats)
+            {
+                var statType = statSet.Key;
+                var statDef = statSet.Value;
+                Stat stat; 
+                stat = statDef.Regenerative ? new RegenerativeStat(statDef.Amount, statDef.RegenerativeForce) : new Stat(statDef.Amount);    
+                StatHolder.AddStat(statType, stat);
+            }
         }
 
         #endregion

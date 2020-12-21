@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LabirinthGame.Common
+namespace LabyrinthGame.Common
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {

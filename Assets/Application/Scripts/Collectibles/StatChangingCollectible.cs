@@ -1,36 +1,25 @@
-﻿using LabirinthGame.Effects;
-using LabirinthGame.Stats;
+﻿using LabyrinthGame.Effects;
+using LabyrinthGame.Managers;
 using UnityEngine;
 
-namespace LabirinthGame.Collectibles
+namespace LabyrinthGame.Collectibles
 {
     public class StatChangingCollectible : CollectibleBase
     {
-        private StatType type = StatType.Undefined;
-        private float amount = 50f;
-        private float duration = 5f;
-        private bool changeRegeneration;
+        private readonly EffectBase _effect;
 
-        public StatChangingCollectible(StatType statToChange, float amount, float duration, bool changeRegeneration)
+        public StatChangingCollectible(EffectBase effect)
         {
-            type = statToChange;
-            this.amount = amount;
-            this.duration = duration;
-            this.changeRegeneration = changeRegeneration;
+            _effect = effect;
         }
 
-        protected override void OnCollectEffect(Collider other)
+        public override void Collect(Collider other)
         {
-            if (other.TryGetComponent(out IEffectApplicable target))
+            if (MasterManager.Instance.LinksHolder.TryGetTransformOwner(other.transform, out var owner))
             {
-                EffectBase effect;
-                if (changeRegeneration)
-                    effect = new StatRegenerationChangingEffect(target, type, amount, duration, duration>0 ? EffectDuration.Timed : EffectDuration.Permanent, amount>0 ? EffectType.Positive : EffectType.Negative);
-                else
-                effect = new StatValueChangingEffect(target, type, amount, duration, duration>0 ? EffectDuration.Timed : EffectDuration.Permanent, amount>0 ? EffectType.Positive : EffectType.Negative);
-
-                target.ApplyEffect(effect);
-                base.OnCollectEffect(other);
+                if (!(owner is IEffectApplicable target)) return;
+                target.ApplyEffect(_effect);
+                base.Collect(other);
             }
         }
     }
