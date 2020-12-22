@@ -150,9 +150,10 @@ namespace LabyrinthGame.Managers
         
         private void ShutdownUI()
         {
-            Destroy(WinWindow);
+            if (WinWindow)
+                Destroy(WinWindow);
+            if (EffectIconHolder)
             Destroy(EffectIconHolder);
-            Destroy(EffectIconPrefab);
         }
     }
 }

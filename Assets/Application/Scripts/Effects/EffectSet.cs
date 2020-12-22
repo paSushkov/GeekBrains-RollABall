@@ -15,21 +15,13 @@ namespace LabyrinthGame.Effects
         [SerializeField] private float minDuration;
         [SerializeField] private float maxDuration;
         [SerializeField] private Sprite icon;
-
         public EffectType GameEffectType => gameEffectType;
-
         public StatType GameStatType => gameStatType;
-
         public bool AffectRegen => affectRegen;
-
         public float MinAmount => minAmount;
-
         public float MaxAmount => maxAmount;
-
         public float MinDuration => minDuration;
-
         public float MaxDuration => maxDuration;
-
         public Sprite Icon => icon;
     }
 }

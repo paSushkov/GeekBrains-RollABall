@@ -20,7 +20,6 @@ namespace LabyrinthGame.Effects
             _amount = amount;
         }
 
-
         public override void OnApplyEffect(IEffectApplicable effectTarget)
         {
             base.OnApplyEffect(effectTarget);

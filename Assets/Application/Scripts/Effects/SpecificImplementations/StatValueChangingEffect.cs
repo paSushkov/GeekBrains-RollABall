@@ -17,7 +17,7 @@ namespace LabyrinthGame.Effects
         public override void OnApplyEffect(IEffectApplicable effectTarget)
         {
             base.OnApplyEffect(effectTarget);
-            stat?.AddExtraValue(ref extraValue);
+                stat?.AddExtraValue(ref extraValue);
         }
 
         protected override void OnTickEffect()
@@ -26,10 +26,7 @@ namespace LabyrinthGame.Effects
 
         protected override void OnExpireEffect()
         {
-            if (DurationType != EffectDuration.Permanent)
-            {
                 stat?.RemoveExtraValue(ref extraValue);
-            }
         }
     }
 }

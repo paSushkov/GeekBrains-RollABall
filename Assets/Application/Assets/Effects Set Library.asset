@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Effects Set Library
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -41,35 +41,35 @@ MonoBehaviour:
   - gameEffectType: 1
     gameStatType: 1
     affectRegen: 1
-    minAmount: 3
-    maxAmount: 6
+    minAmount: 1
+    maxAmount: 3
     minDuration: 5
     maxDuration: 10
     icon: {fileID: 21300000, guid: cfe6413ab67772a45b855cdbb593d210, type: 3}
   - gameEffectType: 2
     gameStatType: 1
     affectRegen: 1
-    minAmount: 3
-    maxAmount: 6
+    minAmount: 1
+    maxAmount: 3
     minDuration: 5
     maxDuration: 10
     icon: {fileID: 21300000, guid: 97d55c48fda9bc24985ee812ffa19fa2, type: 3}
   - gameEffectType: 1
     gameStatType: 3
     affectRegen: 0
-    minAmount: 5
-    maxAmount: 10
+    minAmount: 30
+    maxAmount: 50
     minDuration: 5
     maxDuration: 15
-    icon: {fileID: 21300000, guid: 073a60c7b151d2e49a575f3ba7e305ac, type: 3}
+    icon: {fileID: 21300000, guid: 6c9cf9532f0de6248b06e6de6b5b36cd, type: 3}
   - gameEffectType: 2
     gameStatType: 3
     affectRegen: 0
-    minAmount: 5
-    maxAmount: 10
+    minAmount: 30
+    maxAmount: 50
     minDuration: 5
     maxDuration: 15
-    icon: {fileID: 21300000, guid: d5253c3d375658545b41b4ef7726835e, type: 3}
+    icon: {fileID: 21300000, guid: b0519cba7b3a556499a98da0e50682b9, type: 3}
   - gameEffectType: 1
     gameStatType: 4
     affectRegen: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
     maxAmount: 10
     minDuration: 10
     maxDuration: 30
-    icon: {fileID: 21300000, guid: b4dfdb2477dac1a498e9d0c85b3f84cb, type: 3}
+    icon: {fileID: 21300000, guid: 15dce7bd3657ada4d95e3f3b147d5f30, type: 3}
   - gameEffectType: 2
     gameStatType: 4
     affectRegen: 1
@@ -85,4 +85,4 @@ MonoBehaviour:
     maxAmount: 10
     minDuration: 10
     maxDuration: 30
-    icon: {fileID: 21300000, guid: f993594f8c8d25547b9141c80cd474da, type: 3}
+    icon: {fileID: 21300000, guid: 021d84f8c4a375646bcc5cc3c5e9a384, type: 3}
