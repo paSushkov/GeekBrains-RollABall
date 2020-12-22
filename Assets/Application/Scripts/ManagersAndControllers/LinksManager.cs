@@ -8,6 +8,7 @@ using LabyrinthGame.Player;
 using LabyrinthGame.Stats;
 using LabyrinthGame.Tech.Input;
 using LabyrinthGame.Tech.PlayerLoop;
+using TMPro;
 using UnityEngine;
 
 namespace LabyrinthGame.Managers
@@ -33,6 +34,7 @@ namespace LabyrinthGame.Managers
         private GameObject _effectIconPrefab;
         private GameObject _statBarPrefab;
         private GameObject _statBarHud;
+        private TextMeshProUGUI _remainScore;
         
         
         #endregion
@@ -47,6 +49,7 @@ namespace LabyrinthGame.Managers
         public IlabirinthElementsHolder LevelElementsHolder => elementsHolder;
         public EffectsSetLibrary EffectsSetLibrary => effectsSetLibrary;
         public StatsAsset StatsLibrary => statsLibrary;
+        public TextMeshProUGUI RemainScore => _remainScore;
 
         
         #endregion

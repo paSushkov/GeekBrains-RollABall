@@ -22,7 +22,6 @@ namespace LabyrinthGame.Managers
 
         private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
             if (masterManager)
                 masterManager.Initialize(this, canvas);
             test = masterManager.LinksHolder.Labyrinth.CellsPositions;

@@ -1,5 +1,6 @@
 ﻿using LabyrinthGame.Managers;
 using LabyrinthGame.Stats;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace LabyrinthGame.Effects
@@ -139,9 +140,12 @@ namespace LabyrinthGame.Effects
         }
 
         public EffectBase MakeRandomEffect(EffectDuration durationType = EffectDuration.Undefined)
-        {
+        {            
             var effectSet = MasterManager.Instance.LinksHolder.EffectsSetLibrary.GetRandomEffectSet();
             return MakeEffect(effectSet, durationType);
+
+
+            
         }
     }
 }

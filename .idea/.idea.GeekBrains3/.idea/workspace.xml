@@ -21,18 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="078af3f0-684f-40d5-905d-dc5b31cb8ceb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Assets/Effects Set Library.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Assets/Effects Set Library.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Assets/Stats Asset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Assets/Stats Asset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/UI/EffectIconView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/UI/EffectIconView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/UI/EffectIconsHolder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/UI/EffectIconsHolder.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatSet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +102,6 @@
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsIcons.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatIconDictionary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJumpable.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJump.cs" />
@@ -120,17 +113,18 @@
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatSet.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSet.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" />
       </list>
     </option>
   </component>
@@ -197,6 +191,7 @@
       <workItem from="1608318832717" duration="70120000" />
       <workItem from="1608462727023" duration="66598000" />
       <workItem from="1608556548767" duration="28320000" />
+      <workItem from="1608677255359" duration="2390000" />
     </task>
     <servers />
   </component>

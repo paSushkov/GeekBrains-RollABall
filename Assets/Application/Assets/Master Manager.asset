@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Master Manager
   m_EditorClassIdentifier: 
   linksHolder: {fileID: 11400000, guid: 135f36b4bedf13e478da39b25dcb3c41, type: 2}
+  mandatoryScore: 5

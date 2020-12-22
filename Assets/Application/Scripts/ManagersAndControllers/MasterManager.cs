@@ -8,9 +8,9 @@ using LabyrinthGame.Player;
 using LabyrinthGame.Tech;
 using LabyrinthGame.Tech.Input;
 using LabyrinthGame.Tech.PlayerLoop;
-using LabyrinthGame.UI;
 using Sushkov.SingletonScriptableObject;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace LabyrinthGame.Managers
@@ -18,9 +18,9 @@ namespace LabyrinthGame.Managers
     [CreateAssetMenu(menuName = "Sushkov/SingletonScriptableObject/MasterManager")]
     public class MasterManager : SingletonScriptableObject<MasterManager>
     {
-        public int mandatoryScore = 0;
 
         [SerializeField] private LinksManager linksHolder = null;
+        [SerializeField] private int mandatoryScore = 0;
         private LabyrinthGenerator _levelGenerator = null;
         private List<GameObject> instantiatedObjects = new List<GameObject>();
         
@@ -35,13 +35,19 @@ namespace LabyrinthGame.Managers
 
         public LinksManager LinksHolder => linksHolder;
 
+        public int MandatoryScore
+        {
+            get => mandatoryScore;
+            set { mandatoryScore = value; }
+        }
+
         #endregion
 
 
         #region Static methods
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void FirstInitialize()
+        private  void FirstInitialize()
         {
             Debug.Log("Master manger initialized");
         }
@@ -53,7 +59,7 @@ namespace LabyrinthGame.Managers
 
         public void Initialize(IPlayerLoopProcessor playerLoopProcessor, Transform levelRoot = null)
         {
-            mandatoryScore = 0;
+            MandatoryScore = 0;
 
             var labyrinth = GenerateLabyrinth(levelRoot);
 
@@ -105,6 +111,10 @@ namespace LabyrinthGame.Managers
             var winScreenPrefab = Resources.Load("Prefabs/UI/WinMessage", typeof(GameObject)) as GameObject;
             var effectHolderPrefab = Resources.Load("Prefabs/UI/EffectIconsHolder", typeof(GameObject)) as GameObject;
             var effectIconPrefab = Resources.Load("Prefabs/UI/EffectIconView", typeof(GameObject)) as GameObject;
+            var restartButton = Resources.Load("Prefabs/UI/RestartButton", typeof(GameObject)) as GameObject;
+
+            
+            
             InstantiateUI();
             
             void InstantiateUI()
@@ -114,8 +124,12 @@ namespace LabyrinthGame.Managers
                 var winScreen = InstantiateObject(winScreenPrefab, canvas.transform);
                 var effectHolder = InstantiateObject(effectHolderPrefab, canvas.transform);
                 LinksHolder.InitializeUILinks(winScreen, effectIconPrefab, effectHolder, statBarPrefab, statBarHud);
+                var restBtn = InstantiateObject(restartButton, canvas.transform);
+                if (restBtn.TryGetComponent<Button>(out var restButton))
+                {
+                    restButton.onClick.AddListener(ReloadScene);
+                }
             }
-            
         }
 
         private GameObject InstantiateCamera()
@@ -243,6 +257,13 @@ namespace LabyrinthGame.Managers
                     
                 }
             }
+        }
+
+        private void ReloadScene()
+        {
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         }
 
 

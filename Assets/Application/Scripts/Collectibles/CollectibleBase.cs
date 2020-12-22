@@ -25,7 +25,7 @@ namespace LabyrinthGame.Collectibles
             if (isMandatory)
             {
                 IsMandatory = isMandatory;
-                MasterManager.Instance.mandatoryScore++;
+                MasterManager.Instance.MandatoryScore++;
             }
 
             RotationalTransform = GameTransform = gameTransform;
@@ -50,7 +50,13 @@ namespace LabyrinthGame.Collectibles
         {
             if (IsMandatory)
             {
-                MasterManager.Instance.mandatoryScore--;
+                MasterManager.Instance.MandatoryScore--;
+                if (MasterManager.Instance.MandatoryScore == 0)
+                {
+                    Time.timeScale = 0;
+                    MasterManager.Instance.LinksHolder.WinWindow.SetActive(true);
+                }
+
             }
             DisposeTransform();
             Shutdown();
