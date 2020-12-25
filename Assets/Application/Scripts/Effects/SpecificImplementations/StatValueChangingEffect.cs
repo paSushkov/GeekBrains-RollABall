@@ -1,8 +1,10 @@
-﻿using LabyrinthGame.Stats;
+﻿using System;
+using LabyrinthGame.Stats;
 using UnityEngine;
 
 namespace LabyrinthGame.Effects
 {
+    [Serializable]
     public class StatValueChangingEffect : StatChangingEffect
     {
         private ExtraValue extraValue;

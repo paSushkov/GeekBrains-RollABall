@@ -4,6 +4,8 @@ namespace LabyrinthGame.LevelGenerator
 {
     public class Labyrinth
     {
+        public Transform collectiblesRoot;
+
         private readonly Transform root;
         private readonly Vector3[] wallsPositions;
         private readonly Vector3[] cellsPositions;

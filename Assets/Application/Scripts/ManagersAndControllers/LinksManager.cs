@@ -37,6 +37,7 @@ namespace LabyrinthGame.Managers
         private TextMeshProUGUI _remainScore;
         
         
+        
         #endregion
         
         

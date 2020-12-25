@@ -103,6 +103,19 @@
               <e p="PlayerBase.cs" t="Include" />
               <e p="RigidbodyPlayer.cs" t="Include" />
             </e>
+            <e p="Serialization" t="Include">
+              <e p="CollectibleData.cs" t="Include" />
+              <e p="CollectiblePrefsData.cs" t="Include" />
+              <e p="Crypto.cs" t="Include" />
+              <e p="EffectData.cs" t="Include" />
+              <e p="IData.cs" t="Include" />
+              <e p="JsonArrayWrapper.cs" t="Include" />
+              <e p="JsonData.cs" t="Include" />
+              <e p="PlayerPrefsX.cs" t="Include" />
+              <e p="SaveData.cs" t="Include" />
+              <e p="SaveDataRepository.cs" t="Include" />
+              <e p="Vector3Serializable.cs" t="Include" />
+            </e>
             <e p="Tech" t="Include">
               <e p="Helper.cs" t="Include" />
               <e p="Input" t="Include">

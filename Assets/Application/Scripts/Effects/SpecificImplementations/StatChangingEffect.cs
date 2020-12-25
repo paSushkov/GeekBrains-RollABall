@@ -1,13 +1,16 @@
-﻿using LabyrinthGame.Stats;
+﻿using System;
+using LabyrinthGame.Stats;
 using UnityEngine;
 
 namespace LabyrinthGame.Effects
 {
-    public abstract class StatChangingEffect : EffectBase
+    [Serializable]
+    public class StatChangingEffect : EffectBase
     {
-        protected readonly StatType affectStatType = StatType.Undefined;
+        
+        [SerializeField] protected StatType affectStatType = StatType.Undefined;
+        [SerializeField] protected float _amount;
         protected Stat stat = null;
-        protected float _amount;
 
         public StatType AffectStatType => affectStatType;
         public float Amount => _amount;
@@ -28,5 +31,7 @@ namespace LabyrinthGame.Effects
                 statsOwner.StatHolder?.TryGetStat(AffectStatType, out stat);
             }
         }
+
+
     }
 }

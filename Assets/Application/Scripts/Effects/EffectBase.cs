@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using LabyrinthGame.SerializebleData;
+using LabyrinthGame.Stats;
+using UnityEngine;
 
 namespace LabyrinthGame.Effects
 {
-    public abstract class EffectBase
+    [Serializable]
+    public class EffectBase
     {
         #region Private data
 
-        protected readonly float initialDuration;
-        protected readonly EffectDuration durationType;
-        protected readonly EffectType effectType;
+        [SerializeField] protected float initialDuration;
+        [SerializeField] protected EffectDuration durationType;
+        [SerializeField] protected EffectType effectType;
         protected IEffectApplicable target;
         protected Sprite _effectIcon;
 
@@ -33,7 +37,6 @@ namespace LabyrinthGame.Effects
                 return !(RemainingDuration > 0f);
             }
         }
-
 
         #endregion
 
@@ -62,7 +65,30 @@ namespace LabyrinthGame.Effects
             target = effectTarget;
         }
 
-        protected abstract void OnTickEffect();
-        protected abstract void OnExpireEffect();
+        protected virtual void OnTickEffect()
+        {
+        }
+
+        protected virtual void OnExpireEffect()
+        {
+        }
+
+        public static implicit operator EffectData(EffectBase effect)
+        {
+            var statType = StatType.Undefined;
+            var affectRegen = false;
+            var amount = 0f;
+            var duration = 0f;
+            if (effect is StatChangingEffect statEffect)
+            {
+                statType = statEffect.AffectStatType;
+                amount = statEffect.Amount;
+                duration = statEffect.RemainingDuration;
+                if (effect is StatRegenerationChangingEffect regenEffect)
+                    affectRegen = true;
+            }
+            return new EffectData(effect.EffectType, effect.DurationType, statType, affectRegen, amount, duration,
+                effect._effectIcon.name);
+        }
     }
 }

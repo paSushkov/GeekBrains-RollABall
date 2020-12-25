@@ -24,7 +24,8 @@ namespace LabyrinthGame.Camera
 
         private Vector3 _desiredPosition;
         private List<PositionChangeProcessor> subscribedProcessors = new List<PositionChangeProcessor>();
-
+        private bool isShuttingDown; 
+            
         #endregion
 
         #region Properties
@@ -36,6 +37,9 @@ namespace LabyrinthGame.Camera
 
         private void HandleMovement()
         {
+            if (isShuttingDown)
+                return;
+            
             var direction = _desiredPosition - GameTransform.position;
             var sqrDistance = Vector3.SqrMagnitude(direction);
 
@@ -97,6 +101,7 @@ namespace LabyrinthGame.Camera
 
         public void Shutdown()
         {
+            isShuttingDown = true;
             PlayerLoopSubscriptionController.Shutdown();
             StopTracking();
             DisposeTransform();
@@ -138,6 +143,9 @@ namespace LabyrinthGame.Camera
         
         public void StartTracking(ITrackable target)
         {
+            if (isShuttingDown)
+                return;
+            
             if (IsTracking)
                 StopTracking();
 

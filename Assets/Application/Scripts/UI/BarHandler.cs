@@ -96,6 +96,9 @@ namespace LabyrinthGame.UI
 
         private void HandleBar()
         {
+            if (!content)
+                return;
+            
             if (content.fillAmount != _fillAmount)
             {
                 content.fillAmount = Mathf.Lerp(content.fillAmount, _fillAmount, Time.deltaTime * lerpSpeed);
@@ -103,7 +106,7 @@ namespace LabyrinthGame.UI
                     content.color = Color.Lerp(lowColor, fullColor, content.fillAmount);
             }
         
-            if (rotateToCamera)
+            if (rotateToCamera && _selfTransform)
                 _selfTransform.LookAt(_cameraTransform);
         }
         

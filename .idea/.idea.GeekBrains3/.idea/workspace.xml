@@ -20,13 +20,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="078af3f0-684f-40d5-905d-dc5b31cb8ceb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/CollectibleData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/CollectibleData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/CollectiblePrefsData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/CollectiblePrefsData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/Crypto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/Crypto.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/EffectData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/EffectData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/IData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/IData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/JsonArrayWrapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/JsonArrayWrapper.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/JsonData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/JsonData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/PlayerPrefsX.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/PlayerPrefsX.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/SaveData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/SaveData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/SaveDataRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/SaveDataRepository.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeekBrains3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/PlayerModels/Icosphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/PlayerModels/Icosphere.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/PlayerModels/Sphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Resources/Prefabs/PlayerModels/Sphere.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Enums/EffectTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Enums/EffectTypes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/Labyrinth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/Labyrinth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManagerListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManagerListener.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_114_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_114_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_121_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_121_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_128_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_128_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_131_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_131_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_395_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_395_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_407_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_407_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_437_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_437_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_477_noBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/500_skill_icons/Skill_nobg/skill_477_noBG.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,57 +129,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/SUIMONO - WATER SYSTEM 2/SCRIPTS/cameraCausticsHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IListenTrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IRotatable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IHaveModel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/PositionSetter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MaterialsAndTextures.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/SerializebleDictionary/SerializableDictionary.cs" />
-        <option value="$PROJECT_DIR$/Assets/ThirdParty/LabyrinthGenerator/Assets/Scripts/Runtime/LabyrinthGenerator/LabyrinthGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/UnitySerializedDictionary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/Labyrinth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/LabyrinthGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/RotationManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/ArtLibrary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Helper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/UnitySerializedDictionary/EffectIconDictionary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/EffectsAsset.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleFactory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/EffectsSetLibrary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/StatsAsset.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsDictiontary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/MinMaxCurrent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsIcons.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatIconDictionary.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJumpable.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Enums/StatType.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Common/Interfaces/IJump.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/IPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatsAsset.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/PlayerBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Player/RigidbodyPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/StatSet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterMonoBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/Vector3Serializable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/EffectSerializeble.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/Enums/EffectTypes.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSetExtended.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectSet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/Crypto.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/PlayerPrefsX.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/PlayerPrefsData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatRegenerationChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatValueChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/EffectDataRepository.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/StatChangingCollectible.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Characteristics/Stat.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/SpecificImplementations/StatChangingEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/InputManagerListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/IInputListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/CollectibleData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/EffectData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/JsonHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/SaveData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/IData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/JsonArrayWrapper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/CollectibleDataRepository.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/CollectiblePrefsData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/SaveDataRepository.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectsSetLibrary.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectFactory.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/LinksManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/LabirinthGeneraror/Labyrinth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/ICollectibleFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Tech/Input/GameProcessInputController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Camera/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Effects/EffectBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/Serialization/JsonData.cs" />
         <option value="$PROJECT_DIR$/Assets/Application/Scripts/Collectibles/CollectibleBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/UI/BarHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Application/Scripts/ManagersAndControllers/MasterManager.cs" />
       </list>
     </option>
   </component>
@@ -191,7 +246,8 @@
       <workItem from="1608318832717" duration="70120000" />
       <workItem from="1608462727023" duration="66598000" />
       <workItem from="1608556548767" duration="28320000" />
-      <workItem from="1608677255359" duration="2390000" />
+      <workItem from="1608677255359" duration="3935000" />
+      <workItem from="1608748691110" duration="29831000" />
     </task>
     <servers />
   </component>
@@ -220,10 +276,10 @@
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
     <state x="100" y="100" width="2360" height="1209" key="DiffContextDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1607797358651" />
-    <state x="1086" y="406" key="RiderGenerateDialog" timestamp="1608536320096">
+    <state x="1086" y="406" key="RiderGenerateDialog" timestamp="1608770356622">
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
-    <state x="1086" y="406" key="RiderGenerateDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608536320096" />
+    <state x="1086" y="406" key="RiderGenerateDialog/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608770356622" />
     <state x="93" y="93" width="2375" height="1224" key="VCS.FileHistoryDialog" timestamp="1608390743333">
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
@@ -240,9 +296,9 @@
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
     <state x="937" y="333" key="run.anything.popup/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608352026447" />
-    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup" timestamp="1608389941291">
+    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup" timestamp="1608763390303">
       <screen x="0" y="0" width="2560" height="1409" />
     </state>
-    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608389941291" />
+    <state x="943" y="321" width="672" height="678" key="search.everywhere.popup/3840.196.1920.1034/0.0.2560.1409@0.0.2560.1409" timestamp="1608763390303" />
   </component>
 </project>

@@ -1,5 +1,8 @@
-﻿namespace LabyrinthGame.Effects
+﻿using System;
+
+namespace LabyrinthGame.Effects
 {
+    [Serializable]
     public enum EffectType
     {
         Undefined,
@@ -8,6 +11,7 @@
         Neutral
     }
 
+    [Serializable]
     public enum EffectDuration
     {
         Undefined,

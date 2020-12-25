@@ -18,6 +18,8 @@ namespace LabyrinthGame.Tech.Input
 
         private IInputListener _inputListener;
         private IPlayerLoopProcessor _playerLoopProcessor;
+        private bool _saveLoadDone;
+        private bool isShuttingDown;
             
         #endregion
 
@@ -33,6 +35,7 @@ namespace LabyrinthGame.Tech.Input
 
         public void Shutdown()
         {
+            isShuttingDown = true;
             PlayerLoopSubscriptionController.Shutdown();
             _inputListener = null;
             playerController = null;
@@ -63,11 +66,14 @@ namespace LabyrinthGame.Tech.Input
         public IPlayerLoopSubscriptionController PlayerLoopSubscriptionController { get; } =
             new PlayerLoopSubscriptionController();
 
-        
+
         public void ProcessUpdate(float deltaTime)
         {
+            if (isShuttingDown)
+                return;
             playerController.MoveDirection = InputToDirection();
             JumpInput();
+            SaveLoad();
         }
 
         public void ProcessFixedUpdate(float fixedDeltaTime)
@@ -93,6 +99,38 @@ namespace LabyrinthGame.Tech.Input
         {
             if (_inputListener.Jump>0f)
                 playerController.Jump();
+        }
+
+        private void SaveLoad()
+        {
+            if (_saveLoadDone)
+            {
+                if (_inputListener.Save == 0f && _inputListener.Load == 0f && _saveLoadDone)
+                    _saveLoadDone = false;
+                else
+                    return;
+            }
+
+            SaveInput();
+            LoadInput();
+        }
+
+        private void SaveInput()
+        {
+            if (_inputListener.Save > 0f && !_saveLoadDone)
+            {
+                _saveLoadDone = true;
+                MasterManager.Instance.SaveLevel();                
+            }
+        }
+        
+        private void LoadInput()
+        {
+            if (_inputListener.Load > 0f && !_saveLoadDone)
+            {
+                _saveLoadDone = true;
+                MasterManager.Instance.LoadSave();                
+            }
         }
 
         #endregion

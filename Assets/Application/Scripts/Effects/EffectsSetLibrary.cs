@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LabyrinthGame.SerializebleData;
 using LabyrinthGame.Stats;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -30,5 +31,9 @@ namespace LabyrinthGame.Effects
             return null;
         }
 
+        public EffectSet GetEffectSet(EffectData data)
+        {
+            return GetEffectSet(data.gameEffectType, data.gameStatType, data.affectRegen);
+        }
     }
 }

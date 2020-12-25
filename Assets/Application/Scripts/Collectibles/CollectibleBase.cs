@@ -1,10 +1,14 @@
-﻿using LabyrinthGame.Common;
+﻿using System;
+using LabyrinthGame.Common;
 using LabyrinthGame.Common.Interfaces;
 using LabyrinthGame.Managers;
+using LabyrinthGame.SerializebleData;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LabyrinthGame.Collectibles
 {
+    [Serializable]
     public class CollectibleBase : ICollectible, IRotatable
     {
         #region Private data
@@ -20,14 +24,10 @@ namespace LabyrinthGame.Collectibles
 
         public bool IsMandatory { get; private set; }
 
-        public void Initialize(bool isMandatory, Transform gameTransform, TriggerListener listener, LayerMask reactLayers)
+        public void Initialize(bool isMandatory, Transform gameTransform, TriggerListener listener,
+            LayerMask reactLayers)
         {
-            if (isMandatory)
-            {
-                IsMandatory = isMandatory;
-                MasterManager.Instance.MandatoryScore++;
-            }
-
+            IsMandatory = isMandatory;
             RotationalTransform = GameTransform = gameTransform;
             RegisterAsTransformOwner();
             MyTriggerListener = listener;
@@ -40,6 +40,7 @@ namespace LabyrinthGame.Collectibles
 
         public void Shutdown()
         {
+            DisposeTransform();
             UnsubscribeFromTriggerListener();
             StopRotating();
             RotationalTransform = GameTransform = null;
@@ -48,18 +49,8 @@ namespace LabyrinthGame.Collectibles
 
         public virtual void Collect(Collider collider)
         {
-            if (IsMandatory)
-            {
-                MasterManager.Instance.MandatoryScore--;
-                if (MasterManager.Instance.MandatoryScore == 0)
-                {
-                    Time.timeScale = 0;
-                    MasterManager.Instance.LinksHolder.WinWindow.SetActive(true);
-                }
-
-            }
-            DisposeTransform();
             Shutdown();
+            MasterManager.Instance.Collected(this);
         }
 
 
@@ -149,6 +140,21 @@ namespace LabyrinthGame.Collectibles
 
 
         #endregion
+        
+        public static implicit operator CollectibleData(CollectibleBase collectible)
+        {
+            EffectData effectData;
+            var position = Vector3.zero;
+            
+            if (collectible is StatChangingCollectible statChangingCollectible)
+                effectData = statChangingCollectible.Effect;
+            else
+                effectData = EffectData.MakeFakeData();
+            if (collectible.GameTransform != null)
+                position = collectible.GameTransform.position;
+            
+            return new CollectibleData(position, collectible.IsMandatory, effectData);
+        }
 
     }
 }
