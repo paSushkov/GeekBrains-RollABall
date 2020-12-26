@@ -1,7 +1,6 @@
 ﻿using LabyrinthGame.Managers;
 using LabyrinthGame.SerializebleData;
 using LabyrinthGame.Stats;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace LabyrinthGame.Effects

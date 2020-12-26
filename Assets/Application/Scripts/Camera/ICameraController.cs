@@ -3,7 +3,7 @@ using LabyrinthGame.Common.Interfaces;
 using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabyrinthGame.Camera
+namespace LabyrinthGame.CameraNS
 {
     public interface ICameraController : IMovable, ITracker, IPlayerLoop, IHaveTransform
     {

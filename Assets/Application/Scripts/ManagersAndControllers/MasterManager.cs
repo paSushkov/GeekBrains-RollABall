@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
-using LabyrinthGame.Camera;
+using LabyrinthGame.CameraNS;
 using LabyrinthGame.Collectibles;
 using LabyrinthGame.Common;
 using LabyrinthGame.LevelGenerator;
@@ -30,12 +30,15 @@ namespace LabyrinthGame.Managers
         private GameObject[] _playerModels;
         private GameObject _cameraPrefab;
         private GameObject _coinPrefab;
-        private Material _silverMat;
-        private Material _goldMat;
         private SaveDataRepository _repository;
         private ObservableCollection<CollectibleBase> collectibles;
         private bool isShuttingDown;
 
+        private Material _silverMat;
+        private Material _goldMat;
+        private Sprite gookBounus;
+        private Sprite badBounus;
+        
 
         #region Properties
 
@@ -93,8 +96,11 @@ namespace LabyrinthGame.Managers
             LinksHolder.CameraController.Initialize(playerLoopProcessor, camera.transform);
             LinksHolder.CameraController.StartTracking(LinksHolder.ActivePlayer);
             LinksHolder.UserInputManager.GetGameActiveController().Start();
-
+            
+            LinksHolder.Radar.Initialize(LinksHolder.ActivePlayer, LinksHolder.RadarGO.transform, LinksHolder.PlayerLoopProcessor, LinksHolder.DefaultRadarIcon);
+            
             collectibles = GenerateCollectibleItems(50, 50);
+            SaveLevel();
         }
 
         public void Shutdown()
@@ -113,7 +119,7 @@ namespace LabyrinthGame.Managers
 
         private void LoadResources()
         {
-            // TODO: in a separate container make editor-exposed fields to determine path for each essencial resource
+            
             _cameraPrefab = Resources.Load("Prefabs/MainCamera", typeof(GameObject)) as GameObject;
             _playerModels = Resources.LoadAll("Prefabs/PlayerModels").Cast<GameObject>().ToArray();
             _coinPrefab = Resources.Load("Prefabs/Collectibles/Coins/Coin", typeof(GameObject)) as GameObject;
@@ -127,8 +133,10 @@ namespace LabyrinthGame.Managers
             var effectHolderPrefab = Resources.Load("Prefabs/UI/EffectIconsHolder", typeof(GameObject)) as GameObject;
             var effectIconPrefab = Resources.Load("Prefabs/UI/EffectIconView", typeof(GameObject)) as GameObject;
             var restartButton = Resources.Load("Prefabs/UI/RestartButton", typeof(GameObject)) as GameObject;
-
-
+            var radarPrefab = Resources.Load("Prefabs/UI/Radar", typeof(GameObject)) as GameObject;
+            var defRadarIconPrefab = Resources.Load("Prefabs/UI/DefaultRadarIcon") as GameObject;
+            var mandatoryIcon = Resources.Load<Sprite>("Icons/Radar/DefaultRadarIcon");
+                
             InstantiateUI();
 
             void InstantiateUI()
@@ -137,7 +145,10 @@ namespace LabyrinthGame.Managers
                 var statBarHud = InstantiateObject(statsHudPrefab, canvas.transform);
                 var winScreen = InstantiateObject(winScreenPrefab, canvas.transform);
                 var effectHolder = InstantiateObject(effectHolderPrefab, canvas.transform);
-                LinksHolder.InitializeUILinks(winScreen, effectIconPrefab, effectHolder, statBarPrefab, statBarHud);
+                var radarGO = InstantiateObject(radarPrefab, canvas.transform);
+
+                LinksHolder.InitializeUILinks(winScreen, effectIconPrefab, effectHolder, statBarPrefab, statBarHud,
+                    radarGO, defRadarIconPrefab, mandatoryIcon );
                 var restBtn = InstantiateObject(restartButton, canvas.transform);
                 if (restBtn.TryGetComponent<Button>(out var restButton))
                 {
@@ -168,7 +179,7 @@ namespace LabyrinthGame.Managers
             instantiatedObjects.Add(newObject);
             return newObject;
         }
-
+        
         private void CleanUp()
         {
             for (var i = 0; i < instantiatedObjects.Count; i++)
@@ -233,10 +244,10 @@ namespace LabyrinthGame.Managers
                 
                 view.transform.position = data[i].position;
                 view.transform.SetParent(root.transform);
+                Sprite radarIcon = null;
                 
                 var meshRenderer = Helper.FindComponentInChildWithTag<MeshRenderer>(view, "Body");
                 var banners = Helper.GetComponentsInChildrenWithTag<Image>(view, "Banner");
-
                 if (data[i].effectData.isFake)
                 {
                     if (meshRenderer)
@@ -245,7 +256,7 @@ namespace LabyrinthGame.Managers
 
                     foreach (var banner in banners)
                         banner.enabled = false;
-
+                    radarIcon = LinksHolder.MandatorySprite;
                 }
                 else
                 {
@@ -256,10 +267,12 @@ namespace LabyrinthGame.Managers
                     {
                         foreach (var banner in banners)
                             banner.sprite = effected.Effect.EffectIcon;
+                        
+                        radarIcon = effected.Effect.EffectIcon;
                     }
                 }
                 collectibles.Add(collectiblesModels[i]);
-                collectiblesModels[i].Initialize(data[i].effectData.isFake, view.transform, listener, layerMask);
+                collectiblesModels[i].Initialize(data[i].effectData.isFake, view.transform, listener, layerMask, radarIcon);
                 collectiblesModels[i].StartRotating(LinksHolder.RotationManager);
             }
             collectibles.CollectionChanged += Collectibles_CollectionChanged;
@@ -312,6 +325,8 @@ namespace LabyrinthGame.Managers
                     var view = InstantiateObject(_coinPrefab);
                     Collider collider;
                     TriggerListener listener;
+                    Sprite radarIcon = null;
+
 
                     if (!view.TryGetComponent<Collider>(out collider))
                         collider = view.AddComponent<SphereCollider>();
@@ -338,7 +353,7 @@ namespace LabyrinthGame.Managers
                             meshRenderer.material = _silverMat;
                         }
 
-                        collectible.Initialize(false, view.transform, listener, layerMask);
+                        collectible.Initialize(false, view.transform, listener, layerMask, effect.EffectIcon);
                         foreach (var banner in banners)
                         {
                             banner.sprite = effect.EffectIcon;
@@ -353,7 +368,7 @@ namespace LabyrinthGame.Managers
                         foreach (var banner in banners)
                             banner.enabled = false;
 
-                        collectible.Initialize(true, view.transform, listener, layerMask);
+                        collectible.Initialize(true, view.transform, listener, layerMask, LinksHolder.MandatorySprite);
                         MandatoryScore++;
                     }
 

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using LabyrinthGame.Camera;
+using LabyrinthGame.CameraNS;
 using LabyrinthGame.Collectibles;
 using LabyrinthGame.Common.Interfaces;
 using LabyrinthGame.Effects;
+using LabyrinthGame.GameRadar;
 using LabyrinthGame.LevelGenerator;
 using LabyrinthGame.Player;
 using LabyrinthGame.Stats;
@@ -34,7 +35,11 @@ namespace LabyrinthGame.Managers
         private GameObject _effectIconPrefab;
         private GameObject _statBarPrefab;
         private GameObject _statBarHud;
+        private GameObject radarGO;
+        private GameObject defaultRadarIcon;
+        private Sprite mandatorySprite;
         private TextMeshProUGUI _remainScore;
+        private Radar radar;
         
         
         
@@ -64,7 +69,7 @@ namespace LabyrinthGame.Managers
         public Labyrinth Labyrinth => _labyrinth;
         public EffectFactory GameEffectFactory => _effectFactory;
         public ICollectibleFactory GameCollectibleFactory=> _collectibleFactory;
-
+        public Radar Radar => radar;
 
         #endregion
 
@@ -75,6 +80,9 @@ namespace LabyrinthGame.Managers
         public GameObject EffectIconPrefab => _effectIconPrefab;
         public GameObject StatBarPrefab => _statBarPrefab;
         public GameObject StatBarHud => _statBarHud;
+        public GameObject RadarGO => radarGO;
+        public GameObject DefaultRadarIcon => defaultRadarIcon;
+        public Sprite MandatorySprite => mandatorySprite;
 
         #endregion
 
@@ -87,27 +95,35 @@ namespace LabyrinthGame.Managers
             _labyrinth = labyrinth; 
             _effectFactory = new EffectFactory();
             _collectibleFactory = new CollectibleFactory();
+            radar = new Radar();
             RotationManager?.Initialize(playerLoopProcessor);
             InputTranslator?.Initialize(playerLoopProcessor);
             InputListener?.Initialize(InputTranslator);
         }
 
-        public void InitializeUILinks(GameObject winWindow, GameObject effectIconPrefab, GameObject effectIconHolder, GameObject statBarPrefab, GameObject statBarHud)
+        public void InitializeUILinks(GameObject winWindow, GameObject effectIconPrefab, GameObject effectIconHolder,
+            GameObject statBarPrefab, GameObject statBarHud, GameObject radarGO, GameObject defRadarIconGO,
+            Sprite mandatorySprite)
         {
             _winWindow = winWindow;
             _effectIconHolder = effectIconHolder;
             _effectIconPrefab = effectIconPrefab;
             _statBarPrefab = statBarPrefab;
             _statBarHud = statBarHud;
+            this.radarGO = radarGO;
+            defaultRadarIcon = defRadarIconGO;
+            this.mandatorySprite = mandatorySprite;
         }
 
         public void Shutdown()
         {
+            Radar?.Shutdown();
             ActivePlayer?.Shutdown();
             ActivePlayer = null;
             CameraController?.Shutdown();
             CameraController = null;
             _collectibleFactory = null;
+            radar = null;
 
             RotationManager?.Shutdown();
             InputTranslator?.Shutdown();
@@ -147,7 +163,6 @@ namespace LabyrinthGame.Managers
                     
                 _transformRegistry.Remove(owner);
             }
-
         }
 
         #endregion

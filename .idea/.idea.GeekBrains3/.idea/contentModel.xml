@@ -103,13 +103,17 @@
               <e p="PlayerBase.cs" t="Include" />
               <e p="RigidbodyPlayer.cs" t="Include" />
             </e>
+            <e p="Radar" t="Include">
+              <e p="IRadarTrackable.cs" t="Include" />
+              <e p="Radar.cs" t="Include" />
+              <e p="RadarObject.cs" t="Include" />
+            </e>
             <e p="Serialization" t="Include">
               <e p="CollectibleData.cs" t="Include" />
               <e p="CollectiblePrefsData.cs" t="Include" />
               <e p="Crypto.cs" t="Include" />
               <e p="EffectData.cs" t="Include" />
               <e p="IData.cs" t="Include" />
-              <e p="JsonArrayWrapper.cs" t="Include" />
               <e p="JsonData.cs" t="Include" />
               <e p="PlayerPrefsX.cs" t="Include" />
               <e p="SaveData.cs" t="Include" />
@@ -145,6 +149,9 @@
             <e p="UI" t="Include">
               <e p="BarHandler.cs" t="Include" />
             </e>
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="MaskedTexture.shader" t="Include" />
           </e>
         </e>
         <e p="Plugins" t="Include">

@@ -19,17 +19,18 @@ namespace LabyrinthGame.Collectibles
         #endregion
 
 
-
         #region ICollectible implementation
 
         public bool IsMandatory { get; private set; }
 
         public void Initialize(bool isMandatory, Transform gameTransform, TriggerListener listener,
-            LayerMask reactLayers)
+            LayerMask reactLayers, Sprite radarIcon)
         {
+            RadarIcon = radarIcon;
             IsMandatory = isMandatory;
             RotationalTransform = GameTransform = gameTransform;
             RegisterAsTransformOwner();
+            RegisterToRadar();
             MyTriggerListener = listener;
             this.reactLayers = reactLayers;
             SubscribeToTriggerListener();
@@ -43,6 +44,7 @@ namespace LabyrinthGame.Collectibles
             DisposeTransform();
             UnsubscribeFromTriggerListener();
             StopRotating();
+            UnregisterFromRadar();
             RotationalTransform = GameTransform = null;
             MyTriggerListener = null;
         }
@@ -94,6 +96,22 @@ namespace LabyrinthGame.Collectibles
         }
 
 
+        #endregion
+        
+        #region IRadarTrackable
+
+        public Vector3 RadarPosition => GameTransform.position;
+        public Sprite RadarIcon { get; private set; }
+        public void RegisterToRadar()
+        {
+            MasterManager.Instance.LinksHolder.Radar.RegisterRadarObject(this, RadarIcon);
+        }
+
+        public void UnregisterFromRadar()
+        {
+            MasterManager.Instance.LinksHolder.Radar.RemoveRadarObject(this);
+        }
+        
         #endregion
         
         
@@ -155,6 +173,8 @@ namespace LabyrinthGame.Collectibles
             
             return new CollectibleData(position, collectible.IsMandatory, effectData);
         }
+
+
 
     }
 }

@@ -5,7 +5,7 @@ using LabyrinthGame.Managers;
 using LabyrinthGame.Tech.PlayerLoop;
 using UnityEngine;
 
-namespace LabyrinthGame.Camera
+namespace LabyrinthGame.CameraNS
 {
     public class CameraController : ICameraController
     {

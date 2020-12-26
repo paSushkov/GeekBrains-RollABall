@@ -76,7 +76,6 @@ namespace LabyrinthGame.Managers
         {
             PlayerLoopSubscriptionController.Shutdown();
             AskAllToUnsubscribe(_rotateblesAtUpdate);
-            AskAllToUnsubscribe(_rotatablesAtFixedUpdate);
         }
 
         #endregion
